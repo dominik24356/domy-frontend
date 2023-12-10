@@ -1,1 +1,4 @@
-<p>board works!</p>
+<div>
+  <app-task-list *ngFor="let taskList of board.taskLists" [taskList]="taskList"></app-task-list>
+  <!-- Dodaj więcej app-task-list lub inne elementy w miarę potrzeb -->
+</div>

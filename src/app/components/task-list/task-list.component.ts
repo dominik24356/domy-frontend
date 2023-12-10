@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {TaskList} from "../../app/models/task-list";
 
 @Component({
   selector: 'app-task-list',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent {
-
+  @Input() taskList: TaskList = new TaskList()
 }
