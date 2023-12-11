@@ -1,0 +1,11 @@
+/* task.component.css */
+.task-container {
+  background-color: #f0f0f0; /* Kolor tła - szary */
+  color: #333; /* Kolor tekstu - ciemny szary */
+  padding: 10px; /* Dodaj odstęp wokół zawartości */
+  border-radius: 5px; /* Zaokrąglone rogi */
+}
+
+.task h4 {
+  margin-bottom: 5px; /* Opcjonalne: Dodaje odstęp między tytułem a opisem */
+}

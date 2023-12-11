@@ -1,0 +1,20 @@
+/* task-list.component.css */
+.task-list-container {
+  height: 100%; /* Wysokość równa wysokości elementu board-container */
+  overflow-y: auto; /* Dodaj pionowy scrollbar, jeśli zawartość przekracza wysokość */
+}
+
+.task-list {
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 150px; /* Maksymalna szerokość elementu task-list */
+  margin-right: 10px; /* Opcjonalne: Dodaje odstęp między elementami task-list */
+  float: left; /* Umożliwia układanie elementów od lewej do prawej */
+}
+
+.task-list h3 {
+  color: white;
+  font-size: 0.8em;
+}

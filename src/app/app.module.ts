@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardComponent } from './components/board/board.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
-import { TaskComponent } from './components/task/task.component';
+import { TaskListComponent } from './components/board/task-list/task-list.component';
+import { TaskComponent } from './components/board/task-list/task/task.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
 
