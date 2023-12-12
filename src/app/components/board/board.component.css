@@ -1,7 +1,16 @@
 /* board.component.css */
 .board-container {
   display: flex;
-  overflow-x: auto; /* Dodaj poziomy scrollbar, jeśli zawartość przekracza szerokość */
+  overflow-x: hidden; /* change later to auto ! */
+  overflow-y: auto; /* Ukryj pionowy scrollbar */
   min-width: 100%; /* Minimalna szerokość równa szerokości strony */
-  max-height: 90vh;
+  height: calc(100vh - 3em); /* Wysokość równa wysokości strony minus wysokość navbara */
+
+
+border: red solid 2px;
+
 }
+
+
+
+

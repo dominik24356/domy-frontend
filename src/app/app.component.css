@@ -1,3 +1,15 @@
-body {
-  font-family: 'Roboto Light', sans-serif;
+.app-container {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+
+  background-image: url('images/shapes-background2.jpeg'); /* Ścieżka do twojego pliku graficznego */
+  background-size: cover; /* Dopasuj obraz do rozmiaru kontenera */
+  background-repeat: no-repeat; /* Wyłącz powtarzanie obrazu */
+  background-position: center; /* Wyśrodkuj obraz */
+
+
 }
+

@@ -1,7 +1,11 @@
 <!-- task-list.component.html -->
 <div class="task-list-container">
   <div class="task-list">
-    <h3>{{ taskList.listName }}</h3>
-    <app-task *ngFor="let task of taskList.tasks" [task]="task"></app-task>
+    <div class="task-list-header">
+      <h3>{{ taskList.listName }}</h3>
+    </div>
+    <div class="task-list-content">
+      <app-task *ngFor="let task of taskList.tasks" [task]="task"></app-task>
+    </div>
   </div>
 </div>

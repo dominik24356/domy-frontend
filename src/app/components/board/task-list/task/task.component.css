@@ -1,11 +1,17 @@
 /* task.component.css */
 .task-container {
-  background-color: #f0f0f0; /* Kolor tła - szary */
-  color: #333; /* Kolor tekstu - ciemny szary */
+  background-color: #2f3237; /* Kolor tła - szary */
+  color: #b6c2cf; /* Kolor tekstu - ciemny szary */
   padding: 10px; /* Dodaj odstęp wokół zawartości */
   border-radius: 5px; /* Zaokrąglone rogi */
 }
 
 .task h4 {
   margin-bottom: 5px; /* Opcjonalne: Dodaje odstęp między tytułem a opisem */
+  font-size: 0.8em; /* Opcjonalne: Zmniejsza rozmiar czcionki */
+}
+
+.task p {
+  margin-top: 5px; /* Opcjonalne: Dodaje odstęp między opisem a przyciskiem */
+  font-size: 0.8em; /* Opcjonalne: Zmniejsza rozmiar czcionki */
 }
