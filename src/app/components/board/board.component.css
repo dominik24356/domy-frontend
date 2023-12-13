@@ -3,8 +3,25 @@
   display: flex;
   overflow-x: auto;
   height: calc(100vh - 3em);
-  min-width: 100vh; /* Ustaw stałą szerokość task-list-container */
+  min-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
 }
+.board-container::-webkit-scrollbar {
+  height: 12px; /* Wysokość paska przewijania poziomego */
+}
+
+.board-container::-webkit-scrollbar-thumb {
+  background-color: rgba(182, 194, 207, 0.7); /* Kolor kciuka paska przewijania poziomego */
+  border-radius: 6px; /* Zaokrąglone rogi kciuka paska przewijania poziomego */
+}
+
+.board-container::-webkit-scrollbar-track {
+  background-color: rgba(16, 18, 20, 0.7); /* Kolor tła paska przewijania poziomego */
+  border-radius: 6px; /* Zaokrąglone rogi tła paska przewijania poziomego */
+}
+
+
 .task-list-container {
   display: flex;
   flex-direction: column;
@@ -26,7 +43,24 @@
 
 .task-list-content {
   overflow-y: auto;
-  max-height: 80%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
+  height: 100%; /* Dodaj wysokość 100% */
+}
+
+.task-list-content::-webkit-scrollbar {
+  width: 12px; /* Szerokość paska przewijania */
+}
+
+.task-list-content::-webkit-scrollbar-thumb {
+  background-color: rgba(182, 194, 207, 0.6); /* Kolor kciuka paska przewijania */
+  border-radius: 6px; /* Zaokrąglone rogi kciuka paska przewijania */
+
+}
+
+.task-list-content::-webkit-scrollbar-track {
+  background-color: rgba(93, 104, 107, 0.4); /* Kolor tła paska przewijania */
+  border-radius: 6px; /* Zaokrąglone rogi tła paska przewijania */
 }
 
 app-task {
@@ -35,14 +69,25 @@ app-task {
 }
 
 /* task.component.css */
+/* task.component.css */
 .task-container {
-  background-color: #2f3237; /* Kolor tła - szary */
-  color: #b6c2cf; /* Kolor tekstu - ciemny szary */
-  padding: 10px; /* Dodaj odstęp wokół zawartości */
-  border-radius: 5px; /* Zaokrąglone rogi */
-  margin-bottom: 10px; /* Dodaj odstęp między zadaniami */
+  background-color: #2f3237;
+  color: #b6c2cf;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
   overflow: hidden;
+  margin-right: 5px;
+
+  /* Dodaj efekt hover */
+  transition: background-color 0.3s, color 0.3s;
 }
+
+.task-container:hover {
+  background-color: #b6c2cf;
+  color: #2f3237;
+}
+
 
 .task h4 {
   margin-bottom: 5px; /* Opcjonalne: Dodaje odstęp między tytułem a opisem */
