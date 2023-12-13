@@ -2,8 +2,8 @@
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow: hidden;
 
   background-image: url('images/shapes-background2.jpeg'); /* Ścieżka do twojego pliku graficznego */
   background-size: cover; /* Dopasuj obraz do rozmiaru kontenera */
