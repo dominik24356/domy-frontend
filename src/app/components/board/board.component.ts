@@ -22,4 +22,13 @@ export class BoardComponent implements OnInit {
       this.board = board;
     });
   }
+
+  deleteTaskList(taskListId: number): void {
+    if (confirm('Are you sure you want to delete this task list?')) {
+      this.boardService.deleteTaskList(taskListId).subscribe(() => {
+        // Fetch the updated task lists from the server
+        this.getUserBoard();
+      });
+    }
+  }
 }

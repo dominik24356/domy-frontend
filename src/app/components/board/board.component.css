@@ -2,7 +2,7 @@
 .board-container {
   display: flex;
   overflow-x: auto;
-  height: calc(100vh - 3em);
+  height: calc(100vh - 3em - 25px); /* Adjusted height calculation */
   min-width: 100%;
   scrollbar-width: thin;
   scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
@@ -28,17 +28,32 @@
 }
 
 .task-list {
+  position: relative;
   background-color: #101204;
   border-radius: 10px;
-  margin: 10px;
+  margin: 10px 10px 30px;
   overflow: hidden;
   padding: 10px;
   width: 200px;
 }
 
 .task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #b6c2cf;
   font-size: 0.8em;
+}
+
+.delete-button {
+  font-size: 1.2em;
+  color: #3b3e43; /* Kolor krzyżyka */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.delete-button:hover {
+  color: #ff7875;
 }
 
 .task-list-content {

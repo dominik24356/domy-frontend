@@ -1,29 +1,34 @@
 /* Updated styles for the top navigation */
 .topnav {
-  background-color: #2f3237; /* Dark gray background color */
+  background-color: rgba(47, 50, 55, 0.8); /* Slightly transparent dark gray background color */
   overflow: hidden;
   height: 3em;
+  border-radius: 10px; /* Add rounded corners to the topnav */
+  margin: 10px; /* Add spacing around the navbar */
+  display: flex;
+  align-items: center; /* Center items vertically */
 }
 
-/* Style the links inside the navigation bar */
+
 .topnav a {
-  float: left;
-  color: #b6c2cf; /* Light gray text color */
+  color: #b6c2cf;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 12px;
   text-decoration: none;
-  font-size: 16px; /* Slightly reduced font size */
-  transition: color 0.3s; /* Smooth color transition on hover */
+  font-size: 14px;
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+  border-radius: 10px;
+  margin: 0 10px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #3b3e43; /* Slightly darker background on hover */
-  color: #ffffff; /* White text color on hover */
+  background-color: #3b3e43;
+  color: #ffffff;
+  border-radius: 20px;
 }
 
-/* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: rgb(204, 102, 255);
   color: white;
+  border-radius: 20px;
 }

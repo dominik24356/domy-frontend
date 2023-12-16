@@ -16,5 +16,9 @@ export class BoardService {
     return this.http.get<Board>(url);
   }
 
-  // Możesz dodać inne metody, takie jak dodawanie, usuwanie, aktualizowanie itp.
+
+  deleteTaskList(taskListId: number): Observable<any> {
+    const url = `${this.apiUrl}/task-lists/${taskListId}`;
+    return this.http.delete(url);
+  }
 }

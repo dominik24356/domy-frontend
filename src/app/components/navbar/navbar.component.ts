@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  activeLinkIndex: number | null = null;
+
+  setActiveLink(index: number): void {
+    this.activeLinkIndex = index;
+  }
 
 }
