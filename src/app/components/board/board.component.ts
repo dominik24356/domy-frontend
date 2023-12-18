@@ -8,8 +8,10 @@ import {BoardService} from "../../services/board.service";
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  boardId = 1; // Id tablicy, którą chcesz pobrać
+  boardId = 1;
   board: Board = new Board();
+  showDeleteTaskListAlert = false;
+  taskListToDeleteId: number | undefined;
 
   constructor(private boardService: BoardService) {}
 
@@ -23,12 +25,25 @@ export class BoardComponent implements OnInit {
     });
   }
 
+
+
   deleteTaskList(taskListId: number): void {
-    if (confirm('Are you sure you want to delete this task list?')) {
-      this.boardService.deleteTaskList(taskListId).subscribe(() => {
-        // Fetch the updated task lists from the server
+    this.taskListToDeleteId = taskListId;
+    this.showDeleteTaskListAlert = true;
+  }
+
+  confirmDeleteTaskList(): void {
+    if (this.taskListToDeleteId !== undefined) {
+      this.boardService.deleteTaskList(this.taskListToDeleteId).subscribe(() => {
         this.getUserBoard();
+        this.showDeleteTaskListAlert = false;
+        this.taskListToDeleteId = undefined;
       });
     }
+  }
+
+  cancelDeleteTaskList(): void {
+    this.showDeleteTaskListAlert = false;
+    this.taskListToDeleteId = undefined;
   }
 }

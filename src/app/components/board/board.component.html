@@ -16,4 +16,10 @@
       </div>
     </div>
   </div>
+
+  <app-delete-task-list-alert
+    [show]="showDeleteTaskListAlert"
+    (confirm)="confirmDeleteTaskList()"
+    (cancel)="cancelDeleteTaskList()">
+  </app-delete-task-list-alert>
 </div>

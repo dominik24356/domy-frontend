@@ -1,0 +1,67 @@
+/* delete-task-list-alert.component.css */
+
+/* Keyframes dla animacji */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: rgba(47, 50, 55, 0.3); /* Kolor szary z przeźroczystością */
+  padding: 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px); /* Dodaj lekki blur */
+  animation: fadeIn 0.5s ease; /* Dodaj animację przejścia (fade-in) */
+}
+
+.modal-content {
+  text-align: center;
+  color: white; /* Kolor tekstu na tle szarym */
+}
+
+/* Overlay to darken the rest of the page */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Kolor czarny z przeźroczystością (tło warstwy tła) */
+  z-index: 999;
+  display: none; /* Initially hidden */
+}
+
+.show {
+  display: block;
+}
+
+/* Stylowanie przycisków */
+.modal button {
+  background-color: rgba(47, 50, 55, 0.3); /* Kolor tła na hover odwrócony */
+  color: white; /* Kolor tekstu na tle szarym */
+  padding: 12px 20px; /* Odstęp i szerokość przycisków */
+  margin: 0 10px; /* Odstęp między przyciskami */
+  border: 1px solid white; /* Biały obwód */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Efekt animacji na hover */
+}
+
+.modal button:hover {
+  background-color: white; /* Kolor tła bazowego przycisku */
+  color: black; /* Kolor tekstu na hover odwrócony */
+}
+
+/* Kolor czcionki dla przycisku "Yes" na hover */
+.modal button.yes-button:hover {
+  color: red; /* Kolor czerwony na hover */
+}

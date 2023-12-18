@@ -1,0 +1,11 @@
+<!-- delete-task-list-alert.component.html -->
+
+<div class="overlay" [ngClass]="{'show': show}"></div>
+
+<div class="modal" *ngIf="show">
+  <div class="modal-content">
+    <p>Are you sure you want to delete this task list?</p>
+    <button class="yes-button" (click)="confirmDelete()">Yes</button>
+    <button class="no-button" (click)="cancelDelete()">No</button>
+  </div>
+</div>

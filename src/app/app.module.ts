@@ -6,13 +6,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardComponent } from './components/board/board.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
+import { DeleteTaskListAlertComponent } from './components/board/alerts/delete-task-list-alert/delete-task-list-alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     BoardComponent,
-    SettingsComponent
+    SettingsComponent,
+    DeleteTaskListAlertComponent
   ],
   imports: [
     BrowserModule,
