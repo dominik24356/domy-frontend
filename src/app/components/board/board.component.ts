@@ -46,4 +46,11 @@ export class BoardComponent implements OnInit {
     this.showDeleteTaskListAlert = false;
     this.taskListToDeleteId = undefined;
   }
+
+  addTaskList(): void {
+    // Dodaj logikę do dodawania nowej listy z zadaniami
+    // Możesz użyć np. modalu lub innej formy interakcji
+    console.log('Dodaj nową listę z zadaniami');
+  }
+
 }

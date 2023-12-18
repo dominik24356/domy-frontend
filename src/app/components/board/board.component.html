@@ -17,6 +17,16 @@
     </div>
   </div>
 
+  <div class="add-task-list-container">
+    <div class="add-task-list" (click)="addTaskList()">
+      <div class="add-task-list-header">
+        <span class="plus-sign">&#43;</span>
+        <h3>Add Task List</h3>
+      </div>
+
+    </div>
+  </div>
+
   <app-delete-task-list-alert
     [show]="showDeleteTaskListAlert"
     (confirm)="confirmDeleteTaskList()"

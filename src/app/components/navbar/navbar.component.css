@@ -1,6 +1,6 @@
 /* Updated styles for the top navigation */
 .topnav {
-  background-color: rgba(47, 50, 55, 0.8); /* Slightly transparent dark gray background color */
+  background-color: rgba(47, 50, 55, 0.6); /* Slightly transparent dark gray background color */
   overflow: hidden;
   height: 3em;
   border-radius: 10px; /* Add rounded corners to the topnav */
