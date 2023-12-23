@@ -15,6 +15,9 @@ export class BoardComponent implements OnInit {
   taskListToDeleteId: number | undefined;
   showAddTaskListForm = false;
   addTaskListForm: FormGroup;
+  showAddTaskFormIndex: number | null = null;
+  isAddTaskButtonHidden: boolean[] = [];
+  addTaskForm: FormGroup;
 
   constructor(
     private boardService: BoardService,
@@ -22,6 +25,10 @@ export class BoardComponent implements OnInit {
   ) {
     this.addTaskListForm = this.fb.group({
       taskListName: ['', Validators.required]
+    });
+
+    this.addTaskForm = this.fb.group({
+      taskName: ['', Validators.required],
     });
   }
 
@@ -68,8 +75,32 @@ export class BoardComponent implements OnInit {
     const title = this.addTaskListForm.get('taskListName')?.value;
     this.boardService.addTaskList(title, this.boardId).subscribe(() => {
       this.getUserBoard();
-      this.showAddTaskListForm = false;
-      this.addTaskListForm.reset();
+      this.cancelAddTaskList();
     });
   }
+
+  showAddTaskForm(index: number): void {
+    this.showAddTaskFormIndex = index;
+    this.isAddTaskButtonHidden[index] = true;
+  }
+
+  cancelAddTaskForm(index: number): void {
+    this.showAddTaskFormIndex = null;
+    this.isAddTaskButtonHidden[index] = false;
+    this.addTaskForm.reset();
+  }
+
+  addTask(index: number): void {
+
+    // @ts-ignore
+    const listId:number = this.board.taskLists[index].listId;
+    const newTaskName = this.addTaskForm.get('taskName')?.value;
+    this.boardService.addTask(listId, newTaskName).subscribe(() => {
+      this.cancelAddTaskForm(index);
+      this.getUserBoard();
+    });
+
+  }
+
+
 }

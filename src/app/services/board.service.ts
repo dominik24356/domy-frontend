@@ -22,12 +22,24 @@ export class BoardService {
     return this.http.delete(url);
   }
 
-  addTaskList(title: string, boardId: number): Observable<any> {
+  addTaskList(listTitle: string, boardId: number): Observable<any> {
     const url = `${this.apiUrl}/task-lists`;
     const data = {
-      title: title,
-      id: boardId
+      listTitle: listTitle,
+      boardId: boardId
     };
     return this.http.post(url, data);
   }
+
+  addTask(listId: number, newTaskName: string) : Observable<any> {
+    const url = `${this.apiUrl}/tasks`;
+    const data = {
+      taskName: newTaskName,
+      listId: listId
+    };
+    return this.http.post(url, data);
+
+  }
+
+
 }

@@ -246,7 +246,75 @@ app-task {
   background-color: rgba(255, 0, 0, 0.2);
 }
 
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+}
 
+.add-task-form input {
+  outline: none;
+  border: 1px white solid;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: transparent;
+  color: #b6c2cf;
+}
+
+.add-task-form input::placeholder {
+  color: #b6c2cf;
+}
+
+.button-container {
+  display: flex;
+}
+
+.add-task-form button {
+  padding: 8px 16px;
+  font-size: 14px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.add-task-form button.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.add-task-form button.cancel-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+.add-task-form button.cancel-button:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.add-task-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  margin-bottom: 10px; /* Dodaj odpowiedni odstęp */
+}
+
+.add-task-button:hover {
+  background-color: white;
+  color: black;
+}
 
 
 

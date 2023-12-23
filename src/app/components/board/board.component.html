@@ -15,7 +15,18 @@
         </div>
 
 
-        <button class="add-task-button" >Add new task</button>
+        <button *ngIf="!isAddTaskButtonHidden[i]" class="add-task-button" (click)="showAddTaskForm(i)">Add task</button>
+
+        <div *ngIf="showAddTaskFormIndex === i" class="add-task-form">
+          <form [formGroup]="addTaskForm" (submit)="addTask(i)">
+            <input formControlName="taskName" type="text" placeholder="Enter task name" />
+            <div class="button-container">
+              <button type="submit" class="submit-button">Add</button>
+              <button type="button" class="cancel-button" (click)="cancelAddTaskForm(i)">&#10006;</button>
+            </div>
+          </form>
+        </div>
+
       </div>
     </div>
   </div>
