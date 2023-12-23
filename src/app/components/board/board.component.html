@@ -1,4 +1,4 @@
-<!-- board.component.html -->
+
 <div class="board-container">
   <div class="task-list-container" *ngFor="let taskList of board.taskLists; let i = index">
     <div class="task-list">
@@ -9,10 +9,13 @@
       <div class="task-list-content">
         <div class="task-container" *ngFor="let task of taskList.tasks">
           <div class="task">
-            <h4>{{ task.taskName}}</h4>
+            <h4>{{ task.taskName }}</h4>
             <p>{{ task.description }}</p>
           </div>
         </div>
+
+
+        <button class="add-task-button" >Add new task</button>
       </div>
     </div>
   </div>

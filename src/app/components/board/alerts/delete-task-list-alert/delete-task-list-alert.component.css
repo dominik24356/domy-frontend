@@ -1,6 +1,4 @@
-/* delete-task-list-alert.component.css */
 
-/* Keyframes dla animacji */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -16,52 +14,52 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background-color: rgba(47, 50, 55, 0.3); /* Kolor szary z przeźroczystością */
+  background-color: rgba(47, 50, 55, 0.3);
   padding: 20px;
   border-radius: 8px;
-  backdrop-filter: blur(5px); /* Dodaj lekki blur */
-  animation: fadeIn 0.5s ease; /* Dodaj animację przejścia (fade-in) */
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.5s ease;
 }
 
 .modal-content {
   text-align: center;
-  color: white; /* Kolor tekstu na tle szarym */
+  color: white;
 }
 
-/* Overlay to darken the rest of the page */
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Kolor czarny z przeźroczystością (tło warstwy tła) */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 999;
-  display: none; /* Initially hidden */
+  display: none;
 }
 
 .show {
   display: block;
 }
 
-/* Stylowanie przycisków */
+
 .modal button {
-  background-color: rgba(47, 50, 55, 0.3); /* Kolor tła na hover odwrócony */
-  color: white; /* Kolor tekstu na tle szarym */
-  padding: 12px 20px; /* Odstęp i szerokość przycisków */
-  margin: 0 10px; /* Odstęp między przyciskami */
-  border: 1px solid white; /* Biały obwód */
-  border-radius: 5px; /* Zaokrąglone rogi */
+  background-color: rgba(47, 50, 55, 0.3);
+  color: white;
+  padding: 12px 20px;
+  margin: 0 10px;
+  border: 1px solid white;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Efekt animacji na hover */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .modal button:hover {
-  background-color: white; /* Kolor tła bazowego przycisku */
-  color: black; /* Kolor tekstu na hover odwrócony */
+  background-color: white;
+  color: black;
 }
 
-/* Kolor czcionki dla przycisku "Yes" na hover */
+
 .modal button.yes-button:hover {
-  color: red; /* Kolor czerwony na hover */
+  color: red;
 }

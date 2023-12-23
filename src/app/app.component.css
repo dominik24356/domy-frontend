@@ -5,10 +5,10 @@
   height: 100vh;
   overflow: hidden;
 
-  background-image: url('images/shapes-background2.jpeg'); /* Ścieżka do twojego pliku graficznego */
-  background-size: cover; /* Dopasuj obraz do rozmiaru kontenera */
-  background-repeat: no-repeat; /* Wyłącz powtarzanie obrazu */
-  background-position: center; /* Wyśrodkuj obraz */
+  background-image: url('images/shapes-background2.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
 
 }

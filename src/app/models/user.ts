@@ -3,7 +3,7 @@ export class User {
   username: string;
   login: string;
   password: string;
-  boards?: any[]; // Tutaj powinien być odpowiedni model dla Boarda
+  boards?: any[];
 
   constructor(
     userId: number,
