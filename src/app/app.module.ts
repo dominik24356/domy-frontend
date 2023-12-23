@@ -7,6 +7,7 @@ import { BoardComponent } from './components/board/board.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DeleteTaskListAlertComponent } from './components/board/alerts/delete-task-list-alert/delete-task-list-alert.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import { DeleteTaskListAlertComponent } from './components/board/alerts/delete-t
     NavbarComponent,
     BoardComponent,
     SettingsComponent,
-    DeleteTaskListAlertComponent
+    DeleteTaskListAlertComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,12 +18,21 @@
   </div>
 
   <div class="add-task-list-container">
-    <div class="add-task-list" (click)="addTaskList()">
+    <div class="add-task-list" *ngIf="!showAddTaskListForm" (click)="showAddTaskList()">
       <div class="add-task-list-header">
-        <span class="plus-sign">&#43;</span>
-        <h3>Add Task List</h3>
+        <span class="plus-sign">+</span>
+        <h3>Add task list</h3>
       </div>
+    </div>
 
+    <div *ngIf="showAddTaskListForm" class="add-task-list-form">
+      <form [formGroup]="addTaskListForm">
+        <input formControlName="taskListName" type="text" placeholder="Enter task list title" required />
+        <div class="button-container">
+          <button type="button" class="submit-button" (click)="createTaskList()">Create</button>
+          <button type="button" class="cancel-button" (click)="cancelAddTaskList()">&#10006;</button>
+        </div>
+      </form>
     </div>
   </div>
 

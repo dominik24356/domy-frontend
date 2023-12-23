@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Board} from "../../models/board";
 import {BoardService} from "../../services/board.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-board',
@@ -10,10 +11,19 @@ import {BoardService} from "../../services/board.service";
 export class BoardComponent implements OnInit {
   boardId = 1;
   board: Board = new Board();
-  showDeleteTaskListAlert = false;
+  public showDeleteTaskListAlert = false;
   taskListToDeleteId: number | undefined;
+  showAddTaskListForm = false;
+  addTaskListForm: FormGroup;
 
-  constructor(private boardService: BoardService) {}
+  constructor(
+    private boardService: BoardService,
+    private fb: FormBuilder
+  ) {
+    this.addTaskListForm = this.fb.group({
+      taskListName: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.getUserBoard();
@@ -24,8 +34,6 @@ export class BoardComponent implements OnInit {
       this.board = board;
     });
   }
-
-
 
   deleteTaskList(taskListId: number): void {
     this.taskListToDeleteId = taskListId;
@@ -47,10 +55,21 @@ export class BoardComponent implements OnInit {
     this.taskListToDeleteId = undefined;
   }
 
-  addTaskList(): void {
-    // Dodaj logikę do dodawania nowej listy z zadaniami
-    // Możesz użyć np. modalu lub innej formy interakcji
-    console.log('Dodaj nową listę z zadaniami');
+  showAddTaskList(): void {
+    this.showAddTaskListForm = true;
   }
 
+  cancelAddTaskList(): void {
+    this.showAddTaskListForm = false;
+    this.addTaskListForm.reset();
+  }
+
+  createTaskList(): void {
+    const title = this.addTaskListForm.get('taskListName')?.value;
+    this.boardService.addTaskList(title, this.boardId).subscribe(() => {
+      this.getUserBoard();
+      this.showAddTaskListForm = false;
+      this.addTaskListForm.reset();
+    });
+  }
 }

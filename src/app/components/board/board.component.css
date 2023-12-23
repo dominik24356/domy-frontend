@@ -135,29 +135,34 @@ app-task {
 
 
 
-/* board.component.css */
+
 
 .add-task-list-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Wyśrodkuj elementy w osi X */
 }
 
-.add-task-list {
+.add-task-list, .add-task-list-form{
   position: relative;
-  background-color: rgba(169, 169, 169, 0.5);
+  background-color: rgba(169, 169, 169, 0.3);
   border-radius: 10px;
   margin: 10px 10px 30px;
   overflow: hidden;
   padding: 10px;
-  height: 50px;
   min-height: 50px;
+  height: 50px;
   width: 200px;
   backdrop-filter: blur(5px);
   cursor: pointer;
   transition: background-color 0.3s;
-
 }
+
+.add-task-list-form {
+  min-height: 80px;
+  height: 80px;
+}
+
+
 
 .add-task-list:hover {
   background-color: rgba(182, 194, 207, 0.7);
@@ -180,4 +185,81 @@ app-task {
   font-size: 1.5em;
   margin-right: 5px;
 }
+
+.add-task-list-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task-list-form input {
+  outline: none;
+  border: 1px white solid;
+  margin-bottom: 10px; /* Dodaj odstęp od przycisków */
+  border-radius: 5px;
+  padding: 8px;
+  background-color: transparent; /* Przeźroczyste tło z blurem */
+  color: #b6c2cf; /* Dostosuj kolor tekstu według potrzeb */
+}
+
+.add-task-list-form input::placeholder {
+  color: #b6c2cf; /* Kolor tekstu dla placeholdera */
+}
+
+.button-container {
+  display: flex;
+}
+
+.add-task-list-form button {
+  padding: 8px 16px; /* Dostosuj padding według potrzeb */
+  font-size: 14px; /* Dostosuj rozmiar czcionki według potrzeb */
+}
+
+/* Dodaj styl, aby przyciski były wyrównane do lewej strony */
+
+
+.add-task-list-form button.cancel-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+.add-task-list-form button.submit-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 5px;
+}
+
+.add-task-list-form button.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+
+
+.add-task-list-form button.cancel-button:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+
+
+/*.add-task-list-form input {*/
+/*  width: calc(100%); !* Adjust the width to accommodate padding *!*/
+/*  padding: 8px;*/
+/*  border-radius: 4px; !* Adjust the border-radius as needed *!*/
+/*  outline: none;*/
+/*  background-color: transparent;*/
+/*  border: 2px solid purple;*/
+/*  color: white; !* Adjust text color as needed *!*/
+/*  box-sizing: border-box; !* Include padding and border in the element's total width and height *!*/
+/*}*/
+
+
+
 

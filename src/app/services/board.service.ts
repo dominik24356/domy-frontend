@@ -21,4 +21,13 @@ export class BoardService {
     const url = `${this.apiUrl}/task-lists/${taskListId}`;
     return this.http.delete(url);
   }
+
+  addTaskList(title: string, boardId: number): Observable<any> {
+    const url = `${this.apiUrl}/task-lists`;
+    const data = {
+      title: title,
+      id: boardId
+    };
+    return this.http.post(url, data);
+  }
 }
