@@ -13,11 +13,11 @@
             <p>{{ task.description }}</p>
           </div>
         </div>
-
-
+      </div>
+      <div class="task-list-footer">
         <button *ngIf="!isAddTaskButtonHidden[i]" class="add-task-button" (click)="showAddTaskForm(i)">Add task</button>
 
-        <div *ngIf="showAddTaskFormIndex === i" class="add-task-form">
+        <div *ngIf="currentOpenFormIndex === i" class="add-task-form">
           <form [formGroup]="addTaskForm" (submit)="addTask(i)">
             <input formControlName="taskName" type="text" placeholder="Enter task name" />
             <div class="button-container">
@@ -26,7 +26,6 @@
             </div>
           </form>
         </div>
-
       </div>
     </div>
   </div>

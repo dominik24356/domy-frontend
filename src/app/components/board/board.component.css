@@ -25,6 +25,7 @@
 .task-list-container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .task-list {
@@ -34,7 +35,7 @@
   margin: 10px 10px 30px;
   overflow: hidden;
   padding: 10px;
-  min-height: 50px;
+  min-height: 80px;
   width: 200px;
 }
 
@@ -71,7 +72,8 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
-  max-height: calc(100% - 40px);
+  max-height: calc(100% - 100px);
+  margin-bottom: 50px; /* Dodaj margin-bottom równy wysokości stopki */
 }
 
 .task-list-content::-webkit-scrollbar {
@@ -314,6 +316,16 @@ app-task {
 .add-task-button:hover {
   background-color: white;
   color: black;
+}
+
+
+.task-list-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #101204; /* Dodaj kolor tła stopki, jeśli jest potrzebny */
+  padding: 10px;
 }
 
 
