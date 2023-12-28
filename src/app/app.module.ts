@@ -8,6 +8,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DeleteTaskListAlertComponent } from './components/board/alerts/delete-task-list-alert/delete-task-list-alert.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TaskModalComponent } from './components/board/modals/task-modal/task-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BoardComponent,
     SettingsComponent,
     DeleteTaskListAlertComponent,
+    TaskModalComponent,
   ],
   imports: [
     BrowserModule,

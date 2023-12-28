@@ -1,0 +1,39 @@
+.task-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 600px;
+  background-color: #101204;
+  color: #b6c2cf;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.task-modal-content {
+  text-align: center;
+}
+
+.close-button {
+  cursor: pointer;
+  background-color: #1f1f24;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: #b6c2cf;
+}
+
+.close-button:hover {
+  background-color: #2f2f34;
+}
+
+.task-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

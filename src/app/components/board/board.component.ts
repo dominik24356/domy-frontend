@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Board} from "../../models/board";
 import {BoardService} from "../../services/board.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Task} from "../../models/task";
 
 @Component({
   selector: 'app-board',
@@ -18,6 +19,9 @@ export class BoardComponent implements OnInit {
   isAddTaskButtonHidden: boolean[] = [];
   addTaskForm: FormGroup;
   currentOpenFormIndex: number | null = null;
+  selectedTask: Task | undefined = undefined;
+  isOverlayVisible: boolean = false;
+  isTaskModalOpen: boolean = false;
 
   constructor(
     private boardService: BoardService,
@@ -45,6 +49,7 @@ export class BoardComponent implements OnInit {
   deleteTaskList(taskListId: number): void {
     this.taskListToDeleteId = taskListId;
     this.showDeleteTaskListAlert = true;
+    this.isOverlayVisible = true;
   }
 
   confirmDeleteTaskList(): void {
@@ -53,6 +58,7 @@ export class BoardComponent implements OnInit {
         this.getUserBoard();
         this.showDeleteTaskListAlert = false;
         this.taskListToDeleteId = undefined;
+        this.isOverlayVisible = false;
       });
     }
   }
@@ -60,6 +66,7 @@ export class BoardComponent implements OnInit {
   cancelDeleteTaskList(): void {
     this.showDeleteTaskListAlert = false;
     this.taskListToDeleteId = undefined;
+    this.isOverlayVisible = false;
   }
 
   showAddTaskList(): void {
@@ -103,5 +110,15 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  openTaskModal(task: Task): void {
+    this.selectedTask = task;
+    this.isTaskModalOpen = true;
+    this.isOverlayVisible = true;
+  }
 
+  closeTaskModal(): void {
+    this.selectedTask = undefined;
+    this.isTaskModalOpen = false;
+    this.isOverlayVisible = false;
+  }
 }

@@ -1,0 +1,12 @@
+<div class="task-modal-container">
+  <div *ngIf="showModal" class="task-modal">
+    <div class="task-modal-content">
+      <h2>Task Details</h2>
+      <p>Task Name: {{ task?.taskName }}</p>
+      <p>Description: {{ task?.description }}</p>
+      <button class="close-button" (click)="closeModal.emit()">Close</button>
+    </div>
+  </div>
+</div>
+
+

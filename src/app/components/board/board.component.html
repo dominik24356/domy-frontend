@@ -1,5 +1,7 @@
 
+<div class="overlay" *ngIf="isOverlayVisible"></div>
 <div class="board-container">
+
   <div class="task-list-container" *ngFor="let taskList of board.taskLists; let i = index">
     <div class="task-list">
       <div class="task-list-header">
@@ -7,11 +9,13 @@
         <span class="delete-button" (click)="deleteTaskList(taskList.listId!)">&#10006;</span>
       </div>
       <div class="task-list-content">
-        <div class="task-container" *ngFor="let task of taskList.tasks">
-          <div class="task">
+        <div class="task-container" *ngFor="let task of taskList.tasks" >
+          <div class="task" (click)="openTaskModal(task)">
             <h4>{{ task.taskName }}</h4>
             <p>{{ task.description }}</p>
           </div>
+          <app-task-modal [showModal]="isTaskModalOpen" [task]="selectedTask" (closeModal)="closeTaskModal()"></app-task-modal>
+
         </div>
       </div>
       <div class="task-list-footer">
