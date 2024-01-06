@@ -1,12 +1,57 @@
-<div class="task-modal-container">
-  <div *ngIf="showModal" class="task-modal">
+<!-- task-modal.component.html -->
+
+<div *ngIf="showModal" class="task-modal-container">
+  <div  class="task-modal">
     <div class="task-modal-content">
       <h2>Task Details</h2>
-      <p>Task Name: {{ task?.taskName }}</p>
-      <p>Description: {{ task?.description }}</p>
+      <p><strong>Task Name:</strong> {{ task?.taskName }}</p>
+      <p><strong>Description:</strong> {{ task?.description }}</p>
+      <p><strong>Due Date:</strong> {{ task?.dueDate | date: 'medium' }}</p>
+      <p><strong>Status:</strong> {{ task?.status }}</p>
+
+      <!-- Assigned Users -->
+      <p *ngIf="task?.assignedUsers?.length">
+        <strong>Assigned Users:</strong>
+        <span *ngFor="let user of task?.assignedUsers">{{ user.username }}{{ !last ? ', ' : '' }}</span>
+      </p>
+
+      <!-- Comments -->
+      <div *ngIf="task?.comments?.length">
+        <strong>Comments:</strong>
+        <ul>
+          <li *ngFor="let comment of task?.comments">
+            <p><strong>Author:</strong> {{ comment?.author?.username }}</p>
+            <p><strong>Content:</strong> {{ comment?.content }}</p>
+            <p><strong>Created At:</strong> {{ comment?.creationDateTime | date: 'medium' }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Attachments -->
+      <div *ngIf="task?.attachments?.length">
+        <strong>Attachments:</strong>
+        <ul>
+          <li *ngFor="let attachment of task?.attachments">
+            <p><strong>Link:</strong> {{ attachment?.link }}</p>
+            <p><strong>Display Text:</strong> {{ attachment?.displayText }}</p>
+            <p><strong>Created At:</strong> {{ attachment?.creationDateTime | date: 'medium' }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Labels -->
+      <div *ngIf="task?.labels?.length">
+        <strong>Labels:</strong>
+        <ul>
+          <li *ngFor="let label of task?.labels">
+            <p><strong>Color:</strong> {{ label?.color }}</p>
+            <p><strong>Name:</strong> {{ label?.name }}</p>
+          </li>
+        </ul>
+      </div>
+
       <button class="close-button" (click)="closeModal.emit()">Close</button>
     </div>
   </div>
 </div>
-
 

@@ -1,21 +1,58 @@
-.task-modal {
+/* task-modal.component.css */
+.task-modal-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 600px;
+  z-index: 1000;
+  overflow: hidden;
   background-color: #101204;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.task-modal {
+  width: 500px;
+  max-height: 80vh;
   color: #b6c2cf;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .task-modal-content {
-  text-align: center;
+  text-align: left;
+}
+
+.task-modal-content h2 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.task-modal-content p {
+  color: #b6c2cf;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.task-modal-content strong {
+  color: #fff;
+}
+
+.task-modal-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-modal-content li {
+  margin-bottom: 15px;
 }
 
 .close-button {
@@ -31,9 +68,20 @@
   background-color: #2f2f34;
 }
 
-.task-modal-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+
+.task-modal::-webkit-scrollbar {
+  width: 12px;
 }
+
+.task-modal::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 8px;
+  margin-right: 50px;
+  height: 6px; /* Zmniejsz wysokość scrollbara */
+}
+
+.task-modal::-webkit-scrollbar-track {
+  background-color: #333;
+  border-radius: 10px;
+}
+
