@@ -7,7 +7,6 @@ export class Task {
     public description?: string,
     public dueDate?: Date,
     public status?: TaskStatus,
-    public taskList?: any,
     public assignedUsers?: User[],
     public comments?: Comment[],
     public attachments?: Attachment[],
@@ -25,28 +24,25 @@ export enum TaskStatus {
 
 export class Comment {
   constructor(
-    public id?: number,
-    public task?: Task,
-    public author?: User,
+    public commentId?: number,
+    public authorName?: string,
     public content?: string,
-    public creationDateTime?: Date
+    public createdAt?: Date
   ) {}
 }
 
 export class Attachment {
   constructor(
-    public id?: number,
-    public task?: Task,
+    public attachmentId?: number,
     public link?: string,
-    public displayText?: string,
-    public creationDateTime?: Date
+    public name?: string,
+    public createdAt?: Date
   ) {}
 }
 
 export class Label {
   constructor(
-    public id?: number,
-    public task?: Task,
+    public labelId?: number,
     public color?: LabelColor,
     public name?: string
   ) {}

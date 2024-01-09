@@ -115,10 +115,6 @@
   margin-right: 5px;
 }
 
-/*.task-container:hover {*/
-/*  background-color: #b6c2cf;*/
-/*  color: #2f3237;*/
-/*}*/
 
 
 .task h4 {
@@ -315,7 +311,7 @@
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  margin-bottom: 10px; /* Dodaj odpowiedni odstęp */
+  margin-bottom: 10px;
 }
 
 .add-task-button:hover {
@@ -329,7 +325,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #101204; /* Dodaj kolor tła stopki, jeśli jest potrzebny */
+  background-color: #101204;
   padding: 10px;
 }
 

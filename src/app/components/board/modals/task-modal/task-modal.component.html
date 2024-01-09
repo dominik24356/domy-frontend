@@ -1,57 +1,83 @@
-<!-- task-modal.component.html -->
-
 <div *ngIf="showModal" class="task-modal-container">
-  <div  class="task-modal">
-    <div class="task-modal-content">
-      <h2>Task Details</h2>
-      <p><strong>Task Name:</strong> {{ task?.taskName }}</p>
-      <p><strong>Description:</strong> {{ task?.description }}</p>
-      <p><strong>Due Date:</strong> {{ task?.dueDate | date: 'medium' }}</p>
-      <p><strong>Status:</strong> {{ task?.status }}</p>
-
-      <!-- Assigned Users -->
-      <p *ngIf="task?.assignedUsers?.length">
-        <strong>Assigned Users:</strong>
-        <span *ngFor="let user of task?.assignedUsers">{{ user.username }}{{ !last ? ', ' : '' }}</span>
-      </p>
-
-      <!-- Comments -->
-      <div *ngIf="task?.comments?.length">
-        <strong>Comments:</strong>
-        <ul>
-          <li *ngFor="let comment of task?.comments">
-            <p><strong>Author:</strong> {{ comment?.author?.username }}</p>
-            <p><strong>Content:</strong> {{ comment?.content }}</p>
-            <p><strong>Created At:</strong> {{ comment?.creationDateTime | date: 'medium' }}</p>
-          </li>
-        </ul>
+  <div class="task-modal">
+      <!-- Header Section -->
+      <div class="header">
+        <h2>{{ task?.taskName }}</h2>
+        <div class="due-date">
+          <p><strong>Due date:</strong> {{ task?.dueDate | date: 'medium' }}</p>
+        </div>
       </div>
 
-      <!-- Attachments -->
-      <div *ngIf="task?.attachments?.length">
-        <strong>Attachments:</strong>
-        <ul>
-          <li *ngFor="let attachment of task?.attachments">
-            <p><strong>Link:</strong> {{ attachment?.link }}</p>
-            <p><strong>Display Text:</strong> {{ attachment?.displayText }}</p>
-            <p><strong>Created At:</strong> {{ attachment?.creationDateTime | date: 'medium' }}</p>
-          </li>
-        </ul>
+      <!-- Panels Section -->
+      <div class="panels">
+        <!-- Left Panel Section -->
+        <div class="left-panel">
+          <!-- Labels, Attachments, Assigned Users (Members) Section -->
+          <div class="additional-info">
+            <!-- Labels Section -->
+            <div *ngIf="task?.labels?.length" class="labels">
+              <strong>Labels:</strong>
+              <ul>
+                <li *ngFor="let label of task?.labels">
+                  <p><strong>Color:</strong> {{ label?.color }}</p>
+                  <p><strong>Name:</strong> {{ label?.name }}</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Attachments Section -->
+            <div *ngIf="task?.attachments?.length" class="attachments">
+              <strong>Attachments:</strong>
+              <ul>
+                <li *ngFor="let attachment of task?.attachments">
+                  <p><strong>Link:</strong> {{ attachment?.link }}</p>
+                  <p><strong>Display Text:</strong> {{ attachment?.name }}</p>
+                  <p><strong>Created At:</strong> {{ attachment?.createdAt | date: 'medium' }}</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Assigned Users (Members) Section -->
+            <div *ngIf="task?.assignedUsers?.length" class="assigned-users">
+              <strong>Members:</strong>
+              <span *ngFor="let user of task?.assignedUsers; let last = last">{{ user.username }}{{ !last ? ', ' : '' }}</span>
+            </div>
+          </div>
+
+          <!-- Description Section -->
+          <div class="description">
+            <strong>Description:</strong>
+            <p>{{ task?.description }}</p>
+          </div>
+
+          <!-- Comments Section -->
+          <div *ngIf="task?.comments?.length" class="comments">
+            <strong>Comments:</strong>
+            <ul>
+              <li *ngFor="let comment of task?.comments">
+                <p><strong>Author:</strong> {{ comment?.authorName }}</p>
+                <p><strong>Content:</strong> {{ comment?.content }}</p>
+                <p><strong>Created At:</strong> {{ comment?.createdAt | date: 'medium' }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Panel Section -->
+        <div class="right-panel">
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="action-button">Labels</button>
+            <button class="action-button">Due date</button>
+            <button class="action-button">Attachments</button>
+            <button class="action-button">Move</button>
+            <button class="action-button delete-button">Delete</button>
+          </div>
+        </div>
       </div>
 
-      <!-- Labels -->
-      <div *ngIf="task?.labels?.length">
-        <strong>Labels:</strong>
-        <ul>
-          <li *ngFor="let label of task?.labels">
-            <p><strong>Color:</strong> {{ label?.color }}</p>
-            <p><strong>Name:</strong> {{ label?.name }}</p>
-          </li>
-        </ul>
-      </div>
-
+      <!-- Close Button -->
       <button class="close-button" (click)="closeModal.emit()">Close</button>
     </div>
-  </div>
-</div>
 
+</div>
