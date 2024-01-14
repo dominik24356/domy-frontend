@@ -21,6 +21,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
   overflow-y: auto;
+  overflow-x:hidden ;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .left-panel {
@@ -38,6 +40,19 @@
   float: left;
   text-align: left;
   margin-right: 20px;
+  box-sizing: border-box;
+  width: 60%;
+}
+
+
+.right-panel {
+  flex: 1;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-sizing: border-box;
+  width: 40%;
 }
 
 .labels,
@@ -54,6 +69,8 @@
 .description strong,
 .comments strong {
   color: #fff;
+  margin-bottom: 20px; /* Adjust as needed */
+  display: block; /* Ensure each strong is on a new line */
 }
 
 .labels ul,
@@ -69,13 +86,6 @@
   margin-bottom: 15px;
 }
 
-.right-panel {
-  flex: 1;
-  float: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
 .header {
   width: 100%;
@@ -162,3 +172,176 @@
 }
 
 
+
+.label-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label {
+  padding: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.label:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.attachment {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.attachment-info p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attachment-name {
+  color: #007bff; /* Adjust color as needed */
+  cursor: pointer;
+}
+
+.attachment-options span {
+  margin-left: 10px; /* Add margin for spacing between options */
+  cursor: pointer;
+}
+
+.attachment-options span:hover,
+.attachment-name:hover {
+  text-decoration: underline;
+}
+
+.creation-date {
+  font-size: 12px; /* Adjust font size as needed */
+  margin-top: 5px; /* Add margin for spacing between name and date */
+}
+
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.user-avatar {
+  width: 20%;
+  height: 40px;
+  overflow: hidden;
+  margin-right: 10px;
+  background-image: url('src/app/images/default_user.png'); /* Zastąp ścieżką do pliku graficznego */
+  background-size: contain; /* Dostosowanie tła do wymiarów elementu, całe tło będzie widoczne */
+  background-position: center; /* Ustawienie pozycji tła na center */
+  background-repeat: no-repeat;
+}
+
+
+
+
+.comment-content {
+  flex: 1;
+  width: 80%;
+}
+
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #b6c2cf;
+  font-size: 12px;
+}
+
+.author-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.creation-date {
+  margin-left: 10px;
+}
+
+.comment-text {
+  color: #b6c2cf;
+  background-color: #4a4f57;
+  border-radius: 8px; /* Zaokrąglone rogi dla tekstu komentarza */
+  padding: 10px;
+  font-size: 13px;
+  overflow-wrap: break-word; /* Łamanie słów dla tekstu */
+  word-break: break-word; /* Łamanie słów dla tekstu */
+}
+
+.comment-options {
+  display: flex;
+}
+
+.option {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #b6c2cf;
+}
+
+.option:hover {
+  text-decoration: underline;
+}
+
+/* Add Comment Form */
+
+textarea {
+  width: 100%;
+  resize: none; /* Prevent textarea resizing */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px; /* Add margin for spacing */
+  background-color: #2f3237;
+  color: #b6c2cf;
+  font-size: 14px;
+  overflow-y: hidden;
+  outline: none;
+}
+
+.description textarea:focus {
+  border: 1px solid #007bff; /* Niebieskie obramowanie podczas focusu */
+}
+
+
+
+.edit-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px; /* Add margin for spacing */
+}
+
+.edit-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  margin-right: 10px; /* Add margin for spacing */
+}
+
+.edit-buttons button:hover {
+  background-color: white;
+  color: black;
+}

@@ -4,7 +4,7 @@
       <div class="header">
         <h2>{{ task?.taskName }}</h2>
         <div class="due-date">
-          <p><strong>Due date:</strong> {{ task?.dueDate | date: 'medium' }}</p>
+          <p *ngIf="task?.dueDate"><strong>Due date: </strong> {{ task?.dueDate | date: 'medium' }}</p>
         </div>
       </div>
 
@@ -16,26 +16,35 @@
           <div class="additional-info">
             <!-- Labels Section -->
             <div *ngIf="task?.labels?.length" class="labels">
-              <strong>Labels:</strong>
-              <ul>
-                <li *ngFor="let label of task?.labels">
-                  <p><strong>Color:</strong> {{ label?.color }}</p>
-                  <p><strong>Name:</strong> {{ label?.name }}</p>
-                </li>
-              </ul>
+              <strong>Labels</strong>
+              <div class="label-container">
+                <div *ngFor="let label of task?.labels" class="label" [style.backgroundColor]="getLabelColor(label?.color)">
+                  {{ label?.name }}
+                </div>
+              </div>
             </div>
 
             <!-- Attachments Section -->
             <div *ngIf="task?.attachments?.length" class="attachments">
-              <strong>Attachments:</strong>
+              <strong>Attachments</strong>
               <ul>
-                <li *ngFor="let attachment of task?.attachments">
-                  <p><strong>Link:</strong> {{ attachment?.link }}</p>
-                  <p><strong>Display Text:</strong> {{ attachment?.name }}</p>
-                  <p><strong>Created At:</strong> {{ attachment?.createdAt | date: 'medium' }}</p>
+                <li *ngFor="let attachment of task?.attachments" class="attachment">
+                  <div class="attachment-info">
+                      <p>
+                        <span [title]="attachment?.link" class="attachment-name" (click)="openAttachmentLink(attachment)">
+                          {{ attachment.name }}
+                        </span>
+                        <span class="attachment-options">
+                          <span>Edit</span>
+                          <span>Delete</span>
+                        </span>
+                      </p>
+                      <p class="creation-date">Added at {{ attachment.createdAt | date: 'medium' }}</p>
+                  </div>
                 </li>
               </ul>
             </div>
+
 
             <!-- Assigned Users (Members) Section -->
             <div *ngIf="task?.assignedUsers?.length" class="assigned-users">
@@ -45,22 +54,46 @@
           </div>
 
           <!-- Description Section -->
+          <!-- Description Section -->
           <div class="description">
-            <strong>Description:</strong>
-            <p>{{ task?.description }}</p>
+            <strong>Description</strong>
+            <div *ngIf="!isEditingDescription; else editDescription">
+              <p (click)="startEditingDescription()" #readableDescription>{{ task?.description }}</p>
+            </div>
+            <ng-template #editDescription>
+              <textarea [(ngModel)]="editedDescription" #editableDescription (input)="adjustTextareaHeight()" (keydown.enter)="saveDescription()" (blur)="cancelEditingDescription()">{{ task?.description }}</textarea>
+              <div class="edit-buttons">
+                <button (click)="saveDescription()">Save</button>
+                <button (click)="cancelEditingDescription()">Cancel</button>
+              </div>
+            </ng-template>
           </div>
+
+
 
           <!-- Comments Section -->
           <div *ngIf="task?.comments?.length" class="comments">
-            <strong>Comments:</strong>
-            <ul>
-              <li *ngFor="let comment of task?.comments">
-                <p><strong>Author:</strong> {{ comment?.authorName }}</p>
-                <p><strong>Content:</strong> {{ comment?.content }}</p>
-                <p><strong>Created At:</strong> {{ comment?.createdAt | date: 'medium' }}</p>
+            <strong>Comments</strong>
+            <ul class="comment-list">
+              <li *ngFor="let comment of task?.comments" class="comment-item">
+                <div class="user-avatar">
+                </div>
+                <div class="comment-content">
+                  <p class="comment-meta">
+                    <span class="author-name">{{ comment?.authorName }}</span>
+                    <span class="creation-date">{{ comment?.createdAt | date: 'medium' }}</span>
+                  </p>
+                  <p class="comment-text">{{ comment?.content }}</p>
+                  <div class="comment-options">
+                    <span class="option">Edit</span>
+                    <span class="option">Delete</span>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
+
+
         </div>
 
         <!-- Right Panel Section -->
