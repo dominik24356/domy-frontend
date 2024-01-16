@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Board} from "../models/board";
+import {Task} from "../models/task";
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,12 @@ export class BoardService {
     return this.http.post(url, data);
 
   }
+
+  updateTask(taskId: number | undefined, updateRequest: Task): Observable<any> {
+    const url = `${this.apiUrl}/tasks/${taskId}`;
+    return this.http.put(url, updateRequest);
+  }
+
 
 
 }

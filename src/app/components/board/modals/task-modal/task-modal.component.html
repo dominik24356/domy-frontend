@@ -54,20 +54,22 @@
           </div>
 
           <!-- Description Section -->
-          <!-- Description Section -->
           <div class="description">
             <strong>Description</strong>
             <div *ngIf="!isEditingDescription; else editDescription">
-              <p (click)="startEditingDescription()" #readableDescription>{{ task?.description }}</p>
+              <p (click)="startEditingDescription()" #readableDescription>
+                {{ task?.description?.trim() ? task?.description : 'Text field is empty.' }}
+              </p>
             </div>
             <ng-template #editDescription>
-              <textarea [(ngModel)]="editedDescription" #editableDescription (input)="adjustTextareaHeight()" (keydown.enter)="saveDescription()" (blur)="cancelEditingDescription()">{{ task?.description }}</textarea>
+              <textarea [(ngModel)]="editedDescription" #editableDescription (input)="adjustTextareaHeight()"></textarea>
               <div class="edit-buttons">
                 <button (click)="saveDescription()">Save</button>
                 <button (click)="cancelEditingDescription()">Cancel</button>
               </div>
             </ng-template>
           </div>
+
 
 
 

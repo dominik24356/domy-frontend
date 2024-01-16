@@ -14,7 +14,7 @@
             <h4>{{ task.taskName }}</h4>
             <p>{{ task.description }}</p>
           </div>
-          <app-task-modal [showModal]="isTaskModalOpen" [task]="selectedTask" (closeModal)="closeTaskModal()"></app-task-modal>
+          <app-task-modal [boardId]="boardId" [showModal]="isTaskModalOpen" [task]="selectedTask" (closeModal)="closeTaskModal()"></app-task-modal>
 
         </div>
       </div>

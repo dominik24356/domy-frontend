@@ -309,16 +309,29 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-top: 5px; /* Add margin for spacing */
-  background-color: #2f3237;
+  background-color: #232529;
   color: #b6c2cf;
-  font-size: 14px;
+  font-size: 15px;
   overflow-y: hidden;
   outline: none;
+  padding: 9px;
+  font-family: sans-serif;
 }
 
 .description textarea:focus {
   border: 1px solid #007bff; /* Niebieskie obramowanie podczas focusu */
+}
+
+.description p {
+  border-radius: 5px; /* Zaokrąglone rogi dla tekstu komentarza */
+  padding: 10px;
+  font-size: 15px;
+  overflow-wrap: break-word;
+  white-space: pre-line;
+}
+
+.description p:hover {
+  cursor: pointer;
 }
 
 
