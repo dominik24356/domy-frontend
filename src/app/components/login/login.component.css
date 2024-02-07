@@ -1,0 +1,79 @@
+.login-container {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: rgba(50, 121, 111, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+  color: white; /* Ustawienie białych czcionek */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white; /* Ustawienie białych czcionek */
+}
+
+input {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+
+  /* Anulowanie stylów autofill */
+  -webkit-box-shadow: none !important; /* Anulowanie cienia dla autofill */
+  transition: background-color 5000s ease-in-out 0s; /* Anulowanie animacji zmiany tła przy autofill */
+}
+
+input::placeholder {
+  color: rgba(49, 49, 49, 0.6); /* Domyślny kolor placeholdera */
+}
+
+/* Zachowanie oryginalnej czcionki i koloru tekstu przed i po autofill */
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important; /* Zachowanie koloru tekstu */
+  font-family: inherit !important; /* Zachowanie oryginalnej czcionki */
+  caret-color: white !important; /* Zachowanie koloru kursora (znacznika) */
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+
+
+button {
+  background-color: rgba(49, 49, 49, 0.6);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: #e3e3e3;
+  color: black;
+
+}
+
+.error-message {
+  color: #b6c214;
+  margin-top: 10px;
+}

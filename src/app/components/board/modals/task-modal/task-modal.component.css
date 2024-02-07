@@ -244,7 +244,7 @@
   height: 40px;
   overflow: hidden;
   margin-right: 10px;
-  background-image: url('src/app/images/default_user.png'); /* Zastąp ścieżką do pliku graficznego */
+  background-image: url('../../../../../assets/images/default_user.png'); /* Zastąp ścieżką do pliku graficznego */
   background-size: contain; /* Dostosowanie tła do wymiarów elementu, całe tło będzie widoczne */
   background-position: center; /* Ustawienie pozycji tła na center */
   background-repeat: no-repeat;
