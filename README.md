@@ -1,27 +1,17 @@
-# DomyFrontendAngular
+# Domy Frontend 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+## Overview
+Welcome to the frontend repository for Domy - a task organization application designed to simplify task management and collaboration among users.
 
-## Development server
+## Features
+- User-friendly interface for managing tasks.
+- Responsive design suitable for various devices.
+- Integration with the backend API for seamless communication.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Development Status
+The frontend of Domy is currently under active development. Please note that some features may not be fully implemented, and the application may undergo changes before the final release.
 
-## Code scaffolding
+## Backend Repository
+To access the backend repository for Domy, visit [Domy Backend Repository](https://github.com/dominik24356/domy).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Feel free to contribute, report issues, or provide feedback to help us improve Domy and make task organization easier for everyone. Thank you for your interest and support!
