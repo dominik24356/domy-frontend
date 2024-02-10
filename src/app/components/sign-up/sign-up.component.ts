@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-sign-up',
@@ -6,24 +8,46 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  username: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  signUpForm: FormGroup;
   errorMessage: string = '';
 
-  register() {
-    // Tutaj dodaj logikę rejestracji, np. wywołaj serwis do wysłania danych rejestracyjnych
-    // Możesz użyć wstrzykiwania zależności, aby uzyskać dostęp do usług, np. HTTP
+  constructor(private userService: UserService, private fb: FormBuilder) {
+    this.signUpForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
+      confirmPassword: ['', Validators.required],
+    }, { validators: this.passwordMatchValidator });
+  }
 
-    // Sprawdź, czy hasło i potwierdzenie hasła są takie same
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match';
+  // Walidator do sprawdzania, czy hasło i jego potwierdzenie są takie same
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    return password === confirmPassword ? null : { mismatch: true };
+  }
+
+  register() {
+    if (this.signUpForm.invalid) {
       return;
     }
 
-    // Tutaj umieść logikę rejestracji, np. wywołanie metody w serwisie do rejestracji użytkownika
+    const { username, email, password } = this.signUpForm.value;
 
-    // Po pomyślnej rejestracji możesz wykonać inne operacje, np. przekierowanie do innej strony
+    this.userService.register(username, email, password)
+      .subscribe({
+        next: response => {
+          console.log('Registration successful', response);
+        },
+        error: err => {
+          console.error('Registration failed', err);
+          if (err.error && err.error.message) {
+            this.errorMessage = err.error.message;
+          } else {
+            this.errorMessage = 'Registration failed. Please try again later.';
+          }
+        }
+      });
   }
 }
