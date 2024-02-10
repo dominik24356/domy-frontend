@@ -1,14 +1,20 @@
-<div class="login-container">
+<div class="signup-container">
   <a routerLink="/home" class="home-button">&#8592; Back to Home</a>
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
+  <h2>Sign Up</h2>
+  <form (ngSubmit)="register()">
     <div class="form-group">
       <input type="text" id="username" name="username" [(ngModel)]="username" required placeholder="Username">
     </div>
     <div class="form-group">
+      <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Email">
+    </div>
+    <div class="form-group">
       <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
     </div>
-    <button type="submit">Login</button>
+    <div class="form-group">
+      <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required placeholder="Confirm Password">
+    </div>
+    <button type="submit">Sign Up</button>
   </form>
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </div>

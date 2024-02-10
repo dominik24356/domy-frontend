@@ -4,10 +4,10 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  templateUrl: './board-navbar.component.html',
+  styleUrls: ['./board-navbar.component.css']
 })
-export class NavbarComponent {
+export class boardNavbarComponent {
   activeLinkIndex: number | null = null;
 
   constructor(private authService: AuthService, private router: Router) {}

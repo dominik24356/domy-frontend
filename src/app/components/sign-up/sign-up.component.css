@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
   width: 300px;
   position: absolute;
   top: 50%;
@@ -9,17 +9,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 20px;
-  color: white; /* Ustawienie białych czcionek */
+  color: white;
 }
 
 .form-group {
   margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: white; /* Ustawienie białych czcionek */
 }
 
 input {
@@ -38,15 +32,17 @@ input {
   transition: background-color 5000s ease-in-out 0s; /* Anulowanie animacji zmiany tła przy autofill */
 }
 
-input::placeholder {
-  color: rgba(49, 49, 49, 0.6); /* Domyślny kolor placeholdera */
-}
 
 /* Zachowanie oryginalnej czcionki i koloru tekstu przed i po autofill */
 input:-webkit-autofill {
   -webkit-text-fill-color: white !important; /* Zachowanie koloru tekstu */
   font-family: inherit !important; /* Zachowanie oryginalnej czcionki */
   caret-color: white !important; /* Zachowanie koloru kursora (znacznika) */
+}
+
+
+input::placeholder {
+  color: rgba(49, 49, 49, 0.6); /* Domyślny kolor placeholdera */
 }
 
 input:focus {
@@ -70,7 +66,6 @@ button {
 button:hover {
   background-color: #e3e3e3;
   color: black;
-
 }
 
 .home-button {
