@@ -1,0 +1,13 @@
+
+<div class="navbar">
+  <div class="navbar-logo" href="board">
+    <img src="./assets/images/app_logo.png" alt="Domy Logo">
+    <h1>Domy</h1>
+  </div>
+  <div class="navbar-links">
+    <a [class.active]="activeLinkIndex === 0" (click)="setActiveLink(0)" href="home">Home</a>
+    <a [class.active]="activeLinkIndex === 0" (click)="setActiveLink(0)" href="siema">Home</a>
+    <a (click)="logout()" class="logout">Logout</a>
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="home-page">
+  <app-home-navbar (aboutClicked)="loadAbout()" (homeClicked)="loadHome()"></app-home-navbar>
+  <div class="content-container" >
+    <main *ngIf="!showAbout; else aboutContent">
+      <h1>Welcome to Domy</h1>
+      <p>Discover the power of Domy - a task organization application designed to simplify your task management experience and enhance collaboration among team members. With Domy, you can unleash your productivity and stay organized like never before!</p>
+      <p>Explore a range of powerful features that empower you to:</p>
+      <div class="list-container">
+        <ul>
+          <li>Create boards effortlessly to organize tasks and streamline your workflow.</li>
+          <li>Efficiently manage tasks and prioritize your workload with ease.</li>
+          <li>Collaborate seamlessly with your team members by assigning tasks and leaving comments for better communication.</li>
+          <li>Stay on top of deadlines and track task progress effectively.</li>
+          <li>Customize your workspace to suit your unique needs and preferences.</li>
+        </ul>
+      </div>
+      <p>Ready to transform the way you work? Sign up now and experience the difference with Domy!</p>
+      <button class="sign-up-button" routerLink="/signup">Start Now !</button>
+    </main>
+    <ng-template #aboutContent>
+      <main>
+        <app-about></app-about>
+      </main>
+    </ng-template>
+  </div>
+  <footer>
+    <p>&copy; 2024 Domy. All rights reserved. Designed by Dominik Szczepanik</p>
+  </footer>
+</div>

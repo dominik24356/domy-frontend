@@ -5,8 +5,6 @@
   overflow-y: hidden;
   height: calc(100vh - 3em - 25px);
   min-width: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
 }
 .board-container::-webkit-scrollbar {
   height: 12px;
@@ -71,11 +69,11 @@
 
 .task-list-content {
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(182, 194, 207, 0.7) rgba(16, 18, 20, 0.7);
   max-height: calc(100% - 100px);
   margin-bottom: 50px; /* Dodaj margin-bottom równy wysokości stopki */
+
 }
+
 
 .task-list-content::-webkit-scrollbar {
   width: 12px;

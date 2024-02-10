@@ -1,0 +1,35 @@
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  color: white;
+  filter: drop-shadow(0 0 0.2rem rgb(204, 102, 255));
+}
+
+p {
+  font-size: 1.3em;
+  color: #bdbdbd;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+
+}
+
+li {
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
