@@ -1,1 +1,34 @@
-<p>main-panel-component works!</p>
+
+<div class="main-panel-container">
+  <app-board-navbar></app-board-navbar>
+  <div class="board-container" *ngFor="let board of boards; let i = index">
+    <div class="board" (click)="goToBoard(board.boardId!)">
+      <div class="board-header">
+        <h3>{{ board.boardName }}</h3>
+        <span class="delete-button" >&#10006;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-board-container">
+    <div class="add-board" *ngIf="!showAddBoardForm" (click)="showAddBoard()">
+      <div class="add-board-header">
+        <span class="plus-sign">+</span>
+        <h3>Add board</h3>
+      </div>
+    </div>
+
+    <div *ngIf="showAddBoardForm" class="add-board-form">
+      <form [formGroup]="addBoardForm">
+        <input formControlName="boardName" type="text" placeholder="Enter board title" required />
+        <div class="button-container">
+          <button type="button" class="submit-button" (click)="createBoard()">Create</button>
+          <button type="button" class="cancel-button" (click)="cancelAddBoard()">&#10006;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

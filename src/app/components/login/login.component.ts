@@ -18,7 +18,8 @@ export class LoginComponent {
     this.authService.login(this.username, this.password)
       .subscribe({
         next: () => {
-          this.router.navigate(['/board']);
+          // Przejdź do strony 'board'
+          this.router.navigate(['/main-panel']);
         },
         error: (error) => {
           this.errorMessage = 'Invalid username or password';

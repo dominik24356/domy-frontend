@@ -3,6 +3,7 @@ import {Board} from "../../models/board";
 import {BoardService} from "../../services/board.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Task} from "../../models/task";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-board',
@@ -10,7 +11,7 @@ import {Task} from "../../models/task";
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  boardId = 1;
+  boardId: number = 0;
   board: Board = new Board();
   public showDeleteTaskListAlert = false;
   taskListToDeleteId: number | undefined;
@@ -25,7 +26,8 @@ export class BoardComponent implements OnInit {
 
   constructor(
     private boardService: BoardService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private route: ActivatedRoute
   ) {
     this.addTaskListForm = this.fb.group({
       taskListName: ['', Validators.required]
@@ -37,7 +39,10 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserBoard();
+    this.route.params.subscribe(params => {
+      this.boardId = params['boardId'];
+      this.getUserBoard();
+    });
   }
 
   getUserBoard(): void {
