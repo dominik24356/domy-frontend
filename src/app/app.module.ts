@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/board-navbar/navbar.component';
+import { boardNavbarComponent } from './components/navbar/board-navbar/board-navbar.component';
 import { BoardComponent } from './components/board/board.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -16,20 +16,24 @@ import {AuthGuard} from "./guards/auth.guard";
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { HomeNavbarComponent } from './components/navbar/home-navbar/home-navbar.component';
 import { AboutComponent } from './components/about/about.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MainPanelComponentComponent } from './components/main-panel-component/main-panel-component.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'board', component: BoardComponent, canActivate: [AuthGuard] },
+  { path: 'board/:boardId', component: BoardComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomePageComponent},
+  { path: 'signup', component: SignUpComponent},
+  { path: 'main-panel', component: MainPanelComponentComponent, canActivate: [AuthGuard] },
   { path: '', component: HomePageComponent},
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    boardNavbarComponent,
     BoardComponent,
     SettingsComponent,
     DeleteTaskListAlertComponent,
@@ -39,6 +43,8 @@ const routes: Routes = [
     HomePageComponent,
     HomeNavbarComponent,
     AboutComponent,
+    SignUpComponent,
+    MainPanelComponentComponent,
   ],
   imports: [
     BrowserModule,
