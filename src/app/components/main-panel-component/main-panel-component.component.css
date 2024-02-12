@@ -1,4 +1,3 @@
-
 .main-panel-container {
   height: 100vh;
   width: 100vw;
@@ -7,22 +6,25 @@
   overflow-y: auto;
 }
 
+.main-panel-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Plansze o szerokości co najmniej 200px, ale dopasowujące się do dostępnej przestrzeni */
+  gap: 30px;
+  padding: 40px;
+}
+
 .board-container {
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
 .board {
-  position: relative;
   background-color: rgba(50, 121, 111, 0.6);
   border-radius: 10px;
-  margin: 10px 10px 30px;
   overflow: hidden;
   padding: 10px;
   min-height: 80px;
-  width: 200px;
   transition: background-color 0.3s, scale 0.3s;
+  cursor: pointer;
 }
 
 .board:hover {
@@ -30,21 +32,18 @@
   scale: 1.05;
 }
 
-.add-board-container{
-  display: flex;
-  flex-direction: column;
+.add-board-container {
+  position: relative;
 }
 
-.add-board, .add-board-form {
-  position: relative;
+.add-board,
+.add-board-form {
   background-color: rgba(169, 169, 169, 0.3);
   border-radius: 10px;
-  margin: 10px 10px 30px;
   overflow: hidden;
   padding: 10px;
   min-height: 50px;
   height: 50px;
-  width: 200px;
   backdrop-filter: blur(5px);
   cursor: pointer;
   transition: background-color 0.3s;
@@ -59,19 +58,41 @@
   height: 80px;
 }
 
-
-
 .add-board h3 {
   color: #ffffff;
   font-size: 1em;
+}
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b6c2cf;
+  font-size: 1.1em;
+  height: 50px;
+  margin: 10px;
 }
 
 .add-board-header {
   display: flex;
   align-items: center;
   color: #b6c2cf;
-  font-size: 0.8em;
+  font-size: 1.1em;
   height: 50px;
+}
+
+.delete-button {
+  font-size: 1.2em;
+  color: #3b3e43;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 7px;
+  border-radius: 40%;
+}
+
+.delete-button:hover {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 .plus-sign {
@@ -107,9 +128,6 @@
   font-size: 14px;
 }
 
-
-
-
 .add-board-form button.cancel-button {
   background-color: transparent;
   border: none;
@@ -134,9 +152,6 @@
   color: black;
 }
 
-
-
 .add-board-form button.cancel-button:hover {
   background-color: rgba(255, 0, 0, 0.2);
 }
-

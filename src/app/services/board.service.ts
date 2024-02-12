@@ -29,6 +29,13 @@ export class BoardService {
     return this.http.post(url, null, { headers, params });
   }
 
+  // not ended yet
+  deleteBoard(boardId: number): Observable<any> {
+    const url = `${this.apiUrl}/boards/${boardId}`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.delete(url, { headers });
+  }
+
   // getBoardsForUser(userEmail: number): Observable<Board[]> {
   //   const url = `${this.apiUrl}/users/${userEmail}/boards`;
   //   const headers = this.authService.createAuthorizationHeader();

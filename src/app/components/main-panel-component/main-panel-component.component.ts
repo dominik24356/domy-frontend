@@ -71,4 +71,17 @@ export class MainPanelComponentComponent implements OnInit{
     }
   }
 
+  deleteBoard(event: any, boardId: number): void {
+    event.stopPropagation();
+    this.boardService.deleteBoard(boardId).subscribe({
+      next: () => {
+        this.loadBoards();
+      },
+      error: (error) => {
+        console.error('Error deleting board:', error);
+      }
+    });
+
+
+  }
 }
