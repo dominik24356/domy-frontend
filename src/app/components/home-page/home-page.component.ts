@@ -6,13 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-  showAbout: boolean = false;
 
-  loadAbout() {
-    this.showAbout = true;
-  }
-
-  loadHome() {
-    this.showAbout = false;
-  }
 }

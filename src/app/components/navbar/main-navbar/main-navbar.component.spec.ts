@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeNavbarComponent } from './home-navbar.component';
+import { MainNavbarComponent } from './main-navbar.component';
 
 describe('HomeNavbarComponent', () => {
-  let component: HomeNavbarComponent;
-  let fixture: ComponentFixture<HomeNavbarComponent>;
+  let component: MainNavbarComponent;
+  let fixture: ComponentFixture<MainNavbarComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeNavbarComponent]
+      declarations: [MainNavbarComponent]
     });
-    fixture = TestBed.createComponent(HomeNavbarComponent);
+    fixture = TestBed.createComponent(MainNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

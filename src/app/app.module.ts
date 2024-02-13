@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { boardNavbarComponent } from './components/navbar/board-navbar/board-navbar.component';
 import { BoardComponent } from './components/board/board.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -14,16 +13,18 @@ import {RouterModule, Routes} from "@angular/router";
 import { BackgroundDirective } from './background.directive';
 import {AuthGuard} from "./guards/auth.guard";
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { HomeNavbarComponent } from './components/navbar/home-navbar/home-navbar.component';
+import { MainNavbarComponent } from './components/navbar/main-navbar/main-navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MainPanelComponentComponent } from './components/main-panel-component/main-panel-component.component';
+
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'board/:boardId', component: BoardComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomePageComponent},
+  { path: 'about', component: AboutComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'main-panel', component: MainPanelComponentComponent, canActivate: [AuthGuard] },
   { path: '', component: HomePageComponent},
@@ -33,7 +34,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    boardNavbarComponent,
     BoardComponent,
     SettingsComponent,
     DeleteTaskListAlertComponent,
@@ -41,7 +41,7 @@ const routes: Routes = [
     LoginComponent,
     BackgroundDirective,
     HomePageComponent,
-    HomeNavbarComponent,
+    MainNavbarComponent,
     AboutComponent,
     SignUpComponent,
     MainPanelComponentComponent,

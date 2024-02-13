@@ -1,6 +1,6 @@
 
 <div class="main-panel-container">
-  <app-board-navbar></app-board-navbar>
+  <app-main-navbar [activeLinkIndex]="2"></app-main-navbar>
   <div class="main-panel-content">
     <div class="board-container" *ngFor="let board of boards; let i = index">
       <div class="board" (click)="goToBoard(board.boardId!)">
@@ -29,11 +29,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
 </div>

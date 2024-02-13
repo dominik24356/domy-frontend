@@ -1,10 +1,18 @@
 
+.board-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
 .board-container {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  height: calc(100vh - 3em - 25px);
   min-width: 100%;
+  height: 100%;
 }
 .board-container::-webkit-scrollbar {
   height: 12px;
