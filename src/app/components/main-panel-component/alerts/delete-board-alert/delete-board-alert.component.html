@@ -1,7 +1,9 @@
 
-<div class="modal" *ngIf="show">
+
+<div class="delete-board-alert" *ngIf="show">
+
   <div class="modal-content">
-    <p>Are you sure you want to delete '{{taskListName ? taskListName : 'this'}}' task list?</p>
+    <p>Are you sure you want to delete '{{boardName}}' board?</p>
     <button class="yes-button" (click)="confirmDelete()">Yes</button>
     <button class="no-button" (click)="cancelDelete()">No</button>
   </div>

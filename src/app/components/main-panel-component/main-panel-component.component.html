@@ -1,12 +1,13 @@
 
 <div class="main-panel-container">
   <app-main-navbar [activeLinkIndex]="2"></app-main-navbar>
+  <app-section-title [title]="'Boards'"></app-section-title>
   <div class="main-panel-content">
     <div class="board-container" *ngFor="let board of boards; let i = index">
-      <div class="board" (click)="goToBoard(board.boardId!)">
+      <div title="Open board" class="board" (click)="goToBoard(board.boardId!)">
         <div class="board-header">
           <h3>{{ board.boardName }}</h3>
-          <span class="delete-button" (click)="deleteBoard($event, board.boardId!)">&#10006;</span>
+          <span title="Delete this board" class="delete-button" (click)="startDeletionOfBoard($event, board )">&#10006;</span>
         </div>
       </div>
     </div>
@@ -28,5 +29,12 @@
         </form>
       </div>
     </div>
+
+    <app-delete-board-alert
+      [show]="showDeleteBoardAlert"
+      [boardName]="boardToDeleteName || 'this'"
+      (confirm)="confirmDeleteBoard()"
+      (cancel)="cancelDeleteBoard()">
+    </app-delete-board-alert>
   </div>
 </div>

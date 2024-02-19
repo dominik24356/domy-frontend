@@ -1,0 +1,20 @@
+.title-container {
+  text-align: center; /* Wyśrodkowanie zawartości */
+}
+
+.section-title {
+  background-color: rgba(169, 169, 169, 0.2);
+  color: #b6c2cf;
+  border-radius: 8px;
+  margin: 3px 10px 0px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 1.5em;
+  cursor: default;
+
+
+}
+
+

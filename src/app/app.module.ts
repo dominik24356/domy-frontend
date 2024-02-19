@@ -17,6 +17,9 @@ import { MainNavbarComponent } from './components/navbar/main-navbar/main-navbar
 import { AboutComponent } from './components/about/about.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MainPanelComponentComponent } from './components/main-panel-component/main-panel-component.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { DeleteBoardAlertComponent } from './components/main-panel-component/alerts/delete-board-alert/delete-board-alert.component';
+import { SectionTitleComponent } from './components/common/section-title/section-title.component';
 
 
 
@@ -27,6 +30,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'main-panel', component: MainPanelComponentComponent, canActivate: [AuthGuard] },
+  { path: 'account', component: UserInfoComponent, canActivate: [AuthGuard]},
   { path: '', component: HomePageComponent},
   { path: '**', redirectTo: '/home' },
 ];
@@ -45,6 +49,9 @@ const routes: Routes = [
     AboutComponent,
     SignUpComponent,
     MainPanelComponentComponent,
+    UserInfoComponent,
+    DeleteBoardAlertComponent,
+    SectionTitleComponent,
   ],
   imports: [
     BrowserModule,

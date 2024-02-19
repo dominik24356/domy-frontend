@@ -1,8 +1,7 @@
 
-<div class="overlay" *ngIf="isOverlayVisible"></div>
-
 <div class="board-page">
   <app-main-navbar></app-main-navbar>
+  <app-section-title [title]="'\'' + board.boardName+ '\'' + ' board'"></app-section-title>
 
 <div class="board-container">
 
@@ -11,7 +10,7 @@
     <div class="task-list">
       <div class="task-list-header">
         <h3>{{ taskList.listName }}</h3>
-        <span class="delete-button" (click)="deleteTaskList(taskList.listId!)">&#10006;</span>
+        <span class="delete-button" (click)="deleteTaskList(taskList!)">&#10006;</span>
       </div>
       <div class="task-list-content">
         <div class="task-container" *ngFor="let task of taskList.tasks" >
@@ -60,6 +59,7 @@
 
   <app-delete-task-list-alert
     [show]="showDeleteTaskListAlert"
+    [taskListName]="taskListToDeleteName!"
     (confirm)="confirmDeleteTaskList()"
     (cancel)="cancelDeleteTaskList()">
   </app-delete-task-list-alert>

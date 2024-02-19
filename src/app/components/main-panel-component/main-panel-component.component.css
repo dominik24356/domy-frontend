@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Plansze o szerokości co najmniej 200px, ale dopasowujące się do dostępnej przestrzeni */
   gap: 30px;
-  padding: 40px;
+  padding: 40px 10px;
 }
 
 .board-container {

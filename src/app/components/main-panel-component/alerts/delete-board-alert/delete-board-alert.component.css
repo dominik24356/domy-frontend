@@ -8,12 +8,12 @@
   }
 }
 
-.modal {
+.delete-board-alert {
   position: fixed;
+  z-index: 1000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
   background-color: rgba(47, 50, 55, 0.3);
   padding: 20px;
   border-radius: 8px;
@@ -31,7 +31,7 @@
 }
 
 
-.modal button {
+.delete-board-alert button {
   background-color: rgba(47, 50, 55, 0.3);
   color: white;
   padding: 12px 20px;
@@ -42,16 +42,15 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.modal button:hover {
+.delete-board-alert button:hover {
   background-color: white;
   color: black;
 }
 
 
-.modal button.yes-button:hover {
+.delete-board-alert button.yes-button:hover {
   color: red;
 }
-
 
 .overlay {
   position: fixed;
@@ -59,7 +58,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 999;
 }
 

@@ -15,6 +15,9 @@ export class MainPanelComponentComponent implements OnInit{
   errorMessage: string = '';
   showAddBoardForm: boolean = false;
   addBoardForm: FormGroup;
+  private boardToDeleteId: number | undefined;
+  boardToDeleteName: string | undefined;
+  public showDeleteBoardAlert = false;
 
   constructor(
     private boardService: BoardService,
@@ -71,17 +74,38 @@ export class MainPanelComponentComponent implements OnInit{
     }
   }
 
-  deleteBoard(event: any, boardId: number): void {
+  startDeletionOfBoard(event: any,board : Board): void {
     event.stopPropagation();
-    this.boardService.deleteBoard(boardId).subscribe({
-      next: () => {
-        this.loadBoards();
-      },
-      error: (error) => {
-        console.error('Error deleting board:', error);
-      }
-    });
-
-
+    this.boardToDeleteId = board.boardId;
+    this.boardToDeleteName = board.boardName;
+    this.showDeleteBoardAlert = true;
   }
+
+
+  confirmDeleteBoard(): void {
+    if (this.boardToDeleteId)
+    {
+      this.boardService.deleteBoard(this.boardToDeleteId).subscribe({
+        next: () => {
+          this.loadBoards();
+          this.resetBoardToDelete()
+        },
+        error: (error) => {
+          console.error('Error deleting board:', error);
+        }
+      });
+    }
+  }
+
+  cancelDeleteBoard(): void {
+    this.resetBoardToDelete()
+  }
+
+  resetBoardToDelete(): void {
+    this.showDeleteBoardAlert = false;
+    this.boardToDeleteId = undefined;
+    this.boardToDeleteName = undefined;
+  }
+
+
 }

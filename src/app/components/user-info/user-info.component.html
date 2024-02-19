@@ -1,0 +1,24 @@
+<!-- user-info.component.html -->
+<div class="user-page">
+  <app-main-navbar [activeLinkIndex]="3"></app-main-navbar>
+  <div class="content-container">
+    <h2>User Information</h2>
+    <div class="info-item">
+      <span>Username:</span>
+      <span>{{ user.username }}</span>
+    </div>
+    <div class="info-item">
+      <span>Email:</span>
+      <span>{{ user.email }}</span>
+    </div>
+    <div class="info-item">
+      <span>Password:</span>
+      <span>{{ user.password }}</span>
+      <button (click)="toggleEditPassword()">Zmień hasło</button>
+      <div *ngIf="isEditingPassword">
+        <input type="password" placeholder="Nowe hasło" #newPassword>
+        <button (click)="saveNewPassword(newPassword.value)">Zapisz</button>
+      </div>
+    </div>
+  </div>
+</div>

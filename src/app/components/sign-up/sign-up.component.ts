@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +12,7 @@ export class SignUpComponent {
   signUpForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
     this.signUpForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
       email: ['', [Validators.required, Validators.email]],
@@ -20,7 +21,7 @@ export class SignUpComponent {
     }, { validators: this.passwordMatchValidator });
   }
 
-  // Walidator do sprawdzania, czy hasło i jego potwierdzenie są takie same
+
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
@@ -39,6 +40,7 @@ export class SignUpComponent {
       .subscribe({
         next: response => {
           console.log('Registration successful', response);
+          this.router.navigate(['/login']);
         },
         error: err => {
           console.error('Registration failed', err);

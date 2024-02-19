@@ -23,4 +23,14 @@ export class UserService {
     return this.http.post(url, data, {headers});
   }
 
+
+  // method to get user info and return user model
+  getUserInfo(): Observable<any> {
+    const url = `${this.apiUrl}/users`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.get(url, {headers});
+  }
+
+
+
 }

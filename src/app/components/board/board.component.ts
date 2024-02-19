@@ -4,6 +4,7 @@ import {BoardService} from "../../services/board.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Task} from "../../models/task";
 import {ActivatedRoute} from "@angular/router";
+import {TaskList} from "../../models/task-list";
 
 @Component({
   selector: 'app-board',
@@ -12,7 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class BoardComponent implements OnInit {
   boardId: number = 0;
-  board: Board = new Board();
+  public board: Board = new Board();
   public showDeleteTaskListAlert = false;
   taskListToDeleteId: number | undefined;
   showAddTaskListForm = false;
@@ -21,8 +22,8 @@ export class BoardComponent implements OnInit {
   addTaskForm: FormGroup;
   currentOpenFormIndex: number | null = null;
   selectedTask: Task | undefined = undefined;
-  isOverlayVisible: boolean = false;
   isTaskModalOpen: boolean = false;
+  taskListToDeleteName: string | undefined;
 
   constructor(
     private boardService: BoardService,
@@ -51,10 +52,10 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  deleteTaskList(taskListId: number): void {
-    this.taskListToDeleteId = taskListId;
+  deleteTaskList(taskList: TaskList): void {
+    this.taskListToDeleteId = taskList.listId;
+    this.taskListToDeleteName = taskList.listName;
     this.showDeleteTaskListAlert = true;
-    this.isOverlayVisible = true;
   }
 
   confirmDeleteTaskList(): void {
@@ -63,7 +64,7 @@ export class BoardComponent implements OnInit {
         this.getUserBoard();
         this.showDeleteTaskListAlert = false;
         this.taskListToDeleteId = undefined;
-        this.isOverlayVisible = false;
+        this.taskListToDeleteName = undefined;
       });
     }
   }
@@ -71,7 +72,7 @@ export class BoardComponent implements OnInit {
   cancelDeleteTaskList(): void {
     this.showDeleteTaskListAlert = false;
     this.taskListToDeleteId = undefined;
-    this.isOverlayVisible = false;
+    this.taskListToDeleteName = undefined;
   }
 
   showAddTaskList(): void {
@@ -118,12 +119,10 @@ export class BoardComponent implements OnInit {
   openTaskModal(task: Task): void {
     this.selectedTask = task;
     this.isTaskModalOpen = true;
-    this.isOverlayVisible = true;
   }
 
   closeTaskModal(): void {
     this.selectedTask = undefined;
     this.isTaskModalOpen = false;
-    this.isOverlayVisible = false;
   }
 }
