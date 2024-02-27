@@ -23,10 +23,13 @@ export class BoardService {
 
   createBoard(boardName: string): Observable<any> {
     const url = `${this.apiUrl}/boards`;
-    const params = new HttpParams().set('title', boardName);
+    const data = {
+      boardName: boardName
+    };
+
     const headers = this.authService.createAuthorizationHeader();
 
-    return this.http.post(url, null, { headers, params });
+    return this.http.post(url, data, { headers });
   }
 
   // not ended yet
@@ -77,5 +80,15 @@ export class BoardService {
     const url = `${this.apiUrl}/tasks/${taskId}`;
     const headers = this.authService.createAuthorizationHeader();
     return this.http.put(url, updateRequest, { headers });
+  }
+
+  updateBoard(boardId: number, title:string): Observable<any> {
+    const url = `${this.apiUrl}/boards/${boardId}`;
+    const data = {
+      boardName: title
+    };
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.put(url, data, { headers });
+
   }
 }

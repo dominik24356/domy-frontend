@@ -1,20 +1,33 @@
-.title-container {
-  text-align: center; /* Wyśrodkowanie zawartości */
-}
-
 .section-title {
+  height: 1em;
+  display: flex; /* Ustawienie na flex, aby elementy mogły być obok siebie */
+  align-items: center; /* Wyśrodkowanie elementów w pionie */
+  justify-content: center; /* Wyśrodkowanie elementów w poziomie */
   background-color: rgba(169, 169, 169, 0.2);
   color: #b6c2cf;
   border-radius: 8px;
-  margin: 3px 10px 0px;
+  padding: 5px 10px; /* Dostosowanie paddingu */
+  margin: 0px 10px; /* Dostosowanie marginesu */
 }
 
 .section-title h2 {
-  margin: 0;
-  font-size: 1.5em;
-  cursor: default;
-
-
+  cursor: default; /* Zmiana kursora na pointer */
 }
 
+
+.section-title span {
+  margin-left: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.section-title .delete-icon:hover {
+  color: #ff7875;
+  cursor: pointer;
+}
+
+.section-title .edit-icon:hover {
+  color: #ffbf00;
+  cursor: pointer;
+}
 

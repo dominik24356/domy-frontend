@@ -59,3 +59,40 @@
   z-index: 999;
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container input {
+  margin-bottom: 10px;
+  /* Dodaj inne stylizacje, jeśli są potrzebne */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/*input styling*/
+input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #232529;
+  color: #b6c2cf;
+  font-size: 15px;
+  overflow-y: hidden;
+  outline: none;
+  padding: 9px;
+  font-family: sans-serif;
+}
+
+
+.error-message {
+  color: #b6c214;
+  margin-bottom: 10px;
+}
+

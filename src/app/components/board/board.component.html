@@ -1,8 +1,7 @@
 
 <div class="board-page">
   <app-main-navbar></app-main-navbar>
-  <app-section-title [title]="'\'' + board.boardName+ '\'' + ' board'"></app-section-title>
-
+  <app-section-title [showTools]="true"  [title]="'\'' + board.boardName+ '\'' + ' board'" (editClicked)="handleEditClick()" (deleteClicked)="handleDeleteClick()"></app-section-title>
 <div class="board-container">
 
 
@@ -63,5 +62,20 @@
     (confirm)="confirmDeleteTaskList()"
     (cancel)="cancelDeleteTaskList()">
   </app-delete-task-list-alert>
+
+  <app-change-board-title-alert
+    [show]="showChangeBoardTitleAlert"
+    [boardId]="boardId"
+    (cancelClicked)="handleCancelEditBoardTitle()"
+  ></app-change-board-title-alert>
+
+  <app-delete-board-alert
+    [show]="showDeleteBoardAlert"
+    [boardName]="board.boardName || 'this'"
+    [boardId]="board.boardId"
+    (confirm)="confirmDeleteBoard()"
+    (cancel)="cancelDeleteBoard()">
+  </app-delete-board-alert>
+
 </div>
 </div>

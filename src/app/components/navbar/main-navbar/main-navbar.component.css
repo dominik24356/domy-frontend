@@ -66,3 +66,7 @@
 .navbar-links a{
   cursor: pointer;
 }
+
+.navbar {
+  margin: 10px 10px 0px;
+}

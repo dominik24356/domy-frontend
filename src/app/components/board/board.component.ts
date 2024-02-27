@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Board} from "../../models/board";
 import {BoardService} from "../../services/board.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Task} from "../../models/task";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TaskList} from "../../models/task-list";
 
 @Component({
@@ -14,21 +14,36 @@ import {TaskList} from "../../models/task-list";
 export class BoardComponent implements OnInit {
   boardId: number = 0;
   public board: Board = new Board();
-  public showDeleteTaskListAlert = false;
-  taskListToDeleteId: number | undefined;
+
+  // add task list form
   showAddTaskListForm = false;
   addTaskListForm: FormGroup;
+
+  // add task form
   isAddTaskButtonHidden: boolean[] = [];
   addTaskForm: FormGroup;
   currentOpenFormIndex: number | null = null;
+
+  // task modal
   selectedTask: Task | undefined = undefined;
   isTaskModalOpen: boolean = false;
+
+  // change board title
+  showChangeBoardTitleAlert: boolean = false;
+
+  // delete task list
+  public showDeleteTaskListAlert = false;
+  taskListToDeleteId: number | undefined;
   taskListToDeleteName: string | undefined;
+
+  // delete board
+  showDeleteBoardAlert: boolean = false;
 
   constructor(
     private boardService: BoardService,
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.addTaskListForm = this.fb.group({
       taskListName: ['', Validators.required]
@@ -37,6 +52,7 @@ export class BoardComponent implements OnInit {
     this.addTaskForm = this.fb.group({
       taskName: ['', Validators.required],
     });
+
   }
 
   ngOnInit() {
@@ -125,4 +141,29 @@ export class BoardComponent implements OnInit {
     this.selectedTask = undefined;
     this.isTaskModalOpen = false;
   }
+
+
+  handleEditClick() {
+    this.showChangeBoardTitleAlert = true;
+  }
+
+  handleDeleteClick() {
+    this.showDeleteBoardAlert = true;
+  }
+
+
+  handleCancelEditBoardTitle() {
+    this.showChangeBoardTitleAlert = false;
+  }
+
+  confirmDeleteBoard() {
+    this.showDeleteBoardAlert = false;
+    this.router.navigate(['/main-panel']);
+  }
+
+  cancelDeleteBoard() {
+    this.showDeleteBoardAlert = false;
+  }
+
+
 }

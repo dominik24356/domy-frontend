@@ -1,5 +1,8 @@
 <div class="title-container">
   <div class="section-title">
-    <h2>{{ title }}</h2>
+    <span><h2>{{ title }}</h2></span>
+    <span class="delete-icon" *ngIf="showTools" (click)="onDeleteClick()">&#10006;</span>
+    <span class="edit-icon" *ngIf="showTools" (click)="onEditClick()">✎</span>
   </div>
 </div>
+

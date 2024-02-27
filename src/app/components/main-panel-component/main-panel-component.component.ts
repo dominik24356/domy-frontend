@@ -15,7 +15,7 @@ export class MainPanelComponentComponent implements OnInit{
   errorMessage: string = '';
   showAddBoardForm: boolean = false;
   addBoardForm: FormGroup;
-  private boardToDeleteId: number | undefined;
+  boardToDeleteId: number | undefined;
   boardToDeleteName: string | undefined;
   public showDeleteBoardAlert = false;
 
@@ -83,18 +83,8 @@ export class MainPanelComponentComponent implements OnInit{
 
 
   confirmDeleteBoard(): void {
-    if (this.boardToDeleteId)
-    {
-      this.boardService.deleteBoard(this.boardToDeleteId).subscribe({
-        next: () => {
-          this.loadBoards();
-          this.resetBoardToDelete()
-        },
-        error: (error) => {
-          console.error('Error deleting board:', error);
-        }
-      });
-    }
+    this.loadBoards()
+    this.resetBoardToDelete()
   }
 
   cancelDeleteBoard(): void {

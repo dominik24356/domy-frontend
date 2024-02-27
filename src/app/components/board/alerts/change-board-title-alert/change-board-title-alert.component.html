@@ -1,0 +1,14 @@
+<div class="modal" *ngIf="show">
+  <div class="modal-content">
+    <p>Change title of this board</p>
+    <div class="input-container">
+      <input type="text" [(ngModel)]="newTitle" placeholder="Enter title">
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div class="button-container">
+        <button class="yes-button" (click)="handleEditBoardTitle()">Confirm</button>
+        <button class="no-button" (click)="handleCancelEditBoardTitle()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay" *ngIf="show"></div>

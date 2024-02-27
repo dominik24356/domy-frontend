@@ -18,8 +18,9 @@ import { AboutComponent } from './components/about/about.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MainPanelComponentComponent } from './components/main-panel-component/main-panel-component.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
-import { DeleteBoardAlertComponent } from './components/main-panel-component/alerts/delete-board-alert/delete-board-alert.component';
+import { DeleteBoardAlertComponent } from './components/common/modals/delete-board-alert/delete-board-alert.component';
 import { SectionTitleComponent } from './components/common/section-title/section-title.component';
+import { ChangeBoardTitleAlertComponent } from './components/board/alerts/change-board-title-alert/change-board-title-alert.component';
 
 
 
@@ -52,6 +53,7 @@ const routes: Routes = [
     UserInfoComponent,
     DeleteBoardAlertComponent,
     SectionTitleComponent,
+    ChangeBoardTitleAlertComponent,
   ],
   imports: [
     BrowserModule,

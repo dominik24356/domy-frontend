@@ -33,6 +33,7 @@
     <app-delete-board-alert
       [show]="showDeleteBoardAlert"
       [boardName]="boardToDeleteName || 'this'"
+      [boardId]="boardToDeleteId"
       (confirm)="confirmDeleteBoard()"
       (cancel)="cancelDeleteBoard()">
     </app-delete-board-alert>
