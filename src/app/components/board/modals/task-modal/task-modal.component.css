@@ -369,3 +369,12 @@ textarea {
   background: rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
+
+.task-modal-popover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+

@@ -1,0 +1,110 @@
+.add-label-popover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #515763;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+
+}
+
+.add-label-popover input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #2f3237;
+  color: #fff;
+}
+
+.add-label-popover input::placeholder {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #232529;
+  color: #b6c2cf;
+  font-size: 15px;
+  overflow-y: hidden;
+  outline: none;
+  padding: 9px;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+
+
+.color-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px; /* Dodaj odstęp między listą kolorów a polem wejściowym */
+}
+
+.color-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-item.red {
+  background-color: #bd0d56;
+}
+
+.color-item.green {
+  background-color: #3aab53;
+}
+
+.color-item.blue {
+  background-color: #160dbd;
+}
+
+.color-item.yellow {
+  background-color: #cbd420;
+}
+
+
+.color-item:hover {
+  border-color: blueviolet; /* Zmieniaj kolor obramowania na niebieski po najechaniu myszką */
+}
+
+.selected {
+  border-color: blueviolet;
+}
+
+.add-label-popover button {
+  background-color: rgba(47, 50, 55, 0.3);
+  margin: 0 10px;
+  border: 1px solid white;
+  transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-label-popover button:hover {
+  background-color: white;
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+}
+
+/*error*/
+
+.error-message {
+  color: #b6c214;
+  margin-top: 10px;
+}
+

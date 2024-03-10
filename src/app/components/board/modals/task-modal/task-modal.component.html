@@ -1,6 +1,11 @@
 <div *ngIf="showModal" class="task-modal-container">
+  <div *ngIf="showAddLabelPopover" class="task-modal-popover">
+    <app-labels-popover *ngIf="showAddLabelPopover" class="labels-popover" [boardId]="boardId" (closePopover)="showAddLabelPopover = false" (addLabel)="hanldeAddLabel()"></app-labels-popover>
+  </div>
   <div class="task-modal">
-      <!-- Header Section -->
+
+
+    <!-- Header Section -->
       <div class="header">
         <h2>{{ task?.taskName }}</h2>
         <div class="due-date">
@@ -102,7 +107,8 @@
         <div class="right-panel">
           <!-- Action Buttons -->
           <div class="action-buttons">
-            <button class="action-button">Labels</button>
+            <button class="action-button" (click)="openLabelsDialog()" >Labels</button>
+
             <button class="action-button">Due date</button>
             <button class="action-button">Attachments</button>
             <button class="action-button">Move</button>
@@ -111,9 +117,12 @@
         </div>
       </div>
 
-      <!-- Close Button -->
+    <!-- Close Button -->
       <button class="close-button" (click)="closeModal.emit()">Close</button>
-    </div>
+
+  </div>
+
+
 
 </div>
 <div class="overlay" *ngIf="showModal"></div>

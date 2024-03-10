@@ -1,0 +1,22 @@
+<div class="add-label-popover">
+  <!-- Add label form and other content -->
+  <h3>Add New Label</h3>
+  <!-- Add label form goes here -->
+  <form (ngSubmit)="addNewLabel()">
+    <input type="text" placeholder="Enter label name" [(ngModel)]="labelName" name="labelName" required />
+    <!-- choose color from list -->
+    <div class="color-list">
+      <div class="color-item red" (click)="selectColor(LabelColor.RED)" [ngClass]="{ 'selected': selectedColor === LabelColor.RED }"></div>
+      <div class="color-item blue" (click)="selectColor(LabelColor.BLUE)" [ngClass]="{ 'selected': selectedColor === LabelColor.BLUE }"></div>
+      <div class="color-item green" (click)="selectColor(LabelColor.GREEN)" [ngClass]="{ 'selected': selectedColor === LabelColor.GREEN }"></div>
+      <div class="color-item yellow" (click)="selectColor(LabelColor.YELLOW)" [ngClass]="{ 'selected': selectedColor === LabelColor.YELLOW }"></div>
+    </div>
+    <div class="button-container">
+      <button type="submit" class="add-label-button">Add</button>
+      <button type="button" class="cancel-label-button" (click)="close()">Cancel</button>
+    </div>
+  </form>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- Other content goes here -->
+</div>

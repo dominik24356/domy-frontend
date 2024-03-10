@@ -21,7 +21,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { DeleteBoardAlertComponent } from './components/common/modals/delete-board-alert/delete-board-alert.component';
 import { SectionTitleComponent } from './components/common/section-title/section-title.component';
 import { ChangeBoardTitleAlertComponent } from './components/board/alerts/change-board-title-alert/change-board-title-alert.component';
-
+import { LabelsPopoverComponent } from './components/board/modals/task-modal/dialogs/labels-popover/labels-popover.component';
 
 
 const routes: Routes = [
@@ -54,13 +54,14 @@ const routes: Routes = [
     DeleteBoardAlertComponent,
     SectionTitleComponent,
     ChangeBoardTitleAlertComponent,
+    LabelsPopoverComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

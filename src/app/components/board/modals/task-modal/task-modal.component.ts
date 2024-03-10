@@ -8,10 +8,11 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import {Attachment, LabelColor, Task} from "../../../../models/task";
+import {Attachment, Comment, Label, LabelColor, Task, TaskStatus} from "../../../../models/task";
 import {last, Observable, switchMap, tap, throwError} from "rxjs";
 import {BoardService} from "../../../../services/board.service";
 import {Board} from "../../../../models/board";
+import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-task-modal',
@@ -29,6 +30,7 @@ export class TaskModalComponent implements AfterViewInit {
 
   @ViewChild('readableDescription') readableDescription: ElementRef | undefined;
   @ViewChild('editableDescription') editableDescription: ElementRef | undefined;
+  showAddLabelPopover: boolean = false;
 
   constructor(private cdr: ChangeDetectorRef, private boardService: BoardService) {}
 
@@ -110,6 +112,7 @@ export class TaskModalComponent implements AfterViewInit {
   }
 
   private updateTask(): Observable<Board> {
+
     if (this.task) {
       const { taskName, description, dueDate, status } = this.task;
 
@@ -135,6 +138,13 @@ export class TaskModalComponent implements AfterViewInit {
 
 
 
+  openLabelsDialog() {
+    this.showAddLabelPopover = true;
+  }
+
+  hanldeAddLabel() {
+    this.showAddLabelPopover = false;
+  }
 }
 
 
