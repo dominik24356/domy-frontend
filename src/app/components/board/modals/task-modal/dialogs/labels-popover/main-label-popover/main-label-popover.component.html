@@ -1,0 +1,34 @@
+<div class="main-label-popover">
+  <!-- Search bar -->
+  <input type="text" placeholder="Search labels..." [(ngModel)]="searchQuery" name="searchQuery" (input)="filterLabels()" />
+
+
+
+
+  <!-- List of labels -->
+  <div class="label-list">
+    <div class="label-item" *ngFor="let label of filteredLabels">
+      <div class="label-info">
+        <div class="label-name">{{ label.name }}</div>
+        <div class="label-color" [ngStyle]="{ 'background-color': label.color }"></div>
+      </div>
+      <button class="assign-task-button"
+              (click)="assignOrUnassign(label)"
+              [ngClass]="{'assigned': label.taskIds && label.taskIds.includes(taskId), 'not-assigned': !label.taskIds || !label.taskIds.includes(taskId)}">
+        {{ label.taskIds && label.taskIds.includes(taskId) ? 'Unassign' : 'Assign to Task' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Create new label button -->
+  <button type="button" class="create-label-button" (click)="showCreateNewLabelForm()">Create New Label</button>
+
+  <!-- Save labels button -->
+  <button type="button" class="save-label-button" (click)="saveLabels()">Save Labels</button>
+
+  <!-- Error message -->
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- Cancel  -->
+  <button type="button" class="cancel-label-button" (click)="close()">Cancel</button>
+</div>

@@ -31,6 +31,7 @@ export class TaskModalComponent implements AfterViewInit {
   @ViewChild('readableDescription') readableDescription: ElementRef | undefined;
   @ViewChild('editableDescription') editableDescription: ElementRef | undefined;
   showAddLabelPopover: boolean = false;
+  showMainLabelPopover: boolean = false;
 
   constructor(private cdr: ChangeDetectorRef, private boardService: BoardService) {}
 
@@ -139,11 +140,22 @@ export class TaskModalComponent implements AfterViewInit {
 
 
   openLabelsDialog() {
-    this.showAddLabelPopover = true;
+    this.showMainLabelPopover = true;
   }
 
   hanldeAddLabel() {
     this.showAddLabelPopover = false;
+    this.showMainLabelPopover = true;
+  }
+
+  handleCreateNewLabel() {
+    this.showMainLabelPopover = false;
+    this.showAddLabelPopover = true;
+  }
+
+  handleCloseAddLabelPopover() {
+    this.showAddLabelPopover = false;
+    this.showMainLabelPopover = true;
   }
 }
 

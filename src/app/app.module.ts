@@ -21,7 +21,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { DeleteBoardAlertComponent } from './components/common/modals/delete-board-alert/delete-board-alert.component';
 import { SectionTitleComponent } from './components/common/section-title/section-title.component';
 import { ChangeBoardTitleAlertComponent } from './components/board/alerts/change-board-title-alert/change-board-title-alert.component';
-import { LabelsPopoverComponent } from './components/board/modals/task-modal/dialogs/labels-popover/labels-popover.component';
+import { AddLabelPopoverComponent } from './components/board/modals/task-modal/dialogs/labels-popover/add-label-popover/add-label-popover.component';
+import { MainLabelPopoverComponent } from './components/board/modals/task-modal/dialogs/labels-popover/main-label-popover/main-label-popover.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
     DeleteBoardAlertComponent,
     SectionTitleComponent,
     ChangeBoardTitleAlertComponent,
-    LabelsPopoverComponent,
+    AddLabelPopoverComponent,
+    MainLabelPopoverComponent,
   ],
   imports: [
     BrowserModule,

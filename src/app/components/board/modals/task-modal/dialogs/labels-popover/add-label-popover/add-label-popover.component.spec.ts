@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LabelsPopoverComponent } from './labels-popover.component';
+import { AddLabelPopoverComponent } from './add-label-popover.component';
 
 describe('LabelsDialogComponent', () => {
-  let component: LabelsPopoverComponent;
-  let fixture: ComponentFixture<LabelsPopoverComponent>;
+  let component: AddLabelPopoverComponent;
+  let fixture: ComponentFixture<AddLabelPopoverComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LabelsPopoverComponent]
+      declarations: [AddLabelPopoverComponent]
     });
-    fixture = TestBed.createComponent(LabelsPopoverComponent);
+    fixture = TestBed.createComponent(AddLabelPopoverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

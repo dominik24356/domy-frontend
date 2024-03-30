@@ -1,0 +1,125 @@
+.main-label-popover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #515763;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  width: 250px;
+}
+
+.main-label-popover input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #2f3237;
+  color: #fff;
+}
+
+.main-label-popover input::placeholder {
+  text-align: center;
+}
+
+.main-label-popover .label-list {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.main-label-popover .label-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.main-label-popover .label-list::-webkit-scrollbar-thumb {
+  background-color: #6c6c6c;
+  border-radius: 8px;
+  margin-right: 50px;
+  height: 6px;
+}
+
+.main-label-popover .label-list::-webkit-scrollbar-track {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+
+.main-label-popover .label-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #3a3e47;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.main-label-popover .label-info {
+  display: flex;
+  align-items: center;
+}
+
+.main-label-popover .label-name {
+  color: #fff;
+  margin-right: 10px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-label-popover .label-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.main-label-popover .assign-task-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.main-label-popover .assign-task-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.main-label-popover .create-label-button,
+.main-label-popover .save-label-button,
+.main-label-popover .cancel-label-button
+{
+  background-color: rgba(47, 50, 55, 0.3);
+  margin: 10px 0;
+  border: 1px solid white;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.main-label-popover .create-label-button:hover,
+.main-label-popover .save-label-button:hover,
+.main-label-popover .cancel-label-button:hover {
+  background-color: white;
+  color: black;
+}
+
+
+.main-label-popover .error-message {
+  color: #b6c214;
+  margin-top: 10px;
+}
+
+
+
+
+

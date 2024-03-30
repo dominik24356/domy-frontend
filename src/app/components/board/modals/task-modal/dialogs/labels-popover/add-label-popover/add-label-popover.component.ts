@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {LabelColor, Task} from "../../../../../../models/task";
-import {BoardService} from "../../../../../../services/board.service";
+import {LabelColor, Task} from "../../../../../../../models/task";
+import {BoardService} from "../../../../../../../services/board.service";
 
 
 @Component({
   selector: 'app-labels-popover',
-  templateUrl: './labels-popover.component.html',
-  styleUrls: ['./labels-popover.component.css']
+  templateUrl: './add-label-popover.component.html',
+  styleUrls: ['./add-label-popover.component.css']
 })
-export class LabelsPopoverComponent {
+export class AddLabelPopoverComponent {
 
   @Output() closePopover: EventEmitter<void> = new EventEmitter<void>();
   @Output() addLabel: EventEmitter<void> = new EventEmitter<void>();
@@ -46,6 +46,7 @@ export class LabelsPopoverComponent {
   close() {
     this.closePopover.emit();
   }
+
 
   protected readonly LabelColor = LabelColor;
 }

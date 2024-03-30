@@ -103,4 +103,10 @@ export class BoardService {
     return this.http.post(url, data, {headers});
   }
 
+  getLabels(boardId: number): Observable<any> {
+    const url = `${this.apiUrl}/boards/${boardId}/labels`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.get(url, {headers});
+  }
+
 }

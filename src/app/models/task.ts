@@ -44,7 +44,8 @@ export class Label {
   constructor(
     public labelId?: number,
     public color?: LabelColor,
-    public name?: string
+    public name?: string,
+    public taskIds?: number[]
   ) {}
 }
 
