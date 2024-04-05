@@ -1,7 +1,7 @@
 <div *ngIf="showModal" class="task-modal-container">
   <div  class="task-modal-popover">
     <app-labels-popover *ngIf="showAddLabelPopover" class="labels-popover" [boardId]="boardId" (closePopover)="handleCloseAddLabelPopover()" (addLabel)="hanldeAddLabel()"></app-labels-popover>
-    <app-main-label-popover *ngIf="showMainLabelPopover" class="main-label-popover" (closePopover)="showMainLabelPopover = false" (createNewLabel)="handleCreateNewLabel()" [boardId]="boardId" [taskId]="task?.taskId!" ></app-main-label-popover>
+    <app-main-label-popover *ngIf="showMainLabelPopover" class="main-label-popover" (closePopover)="handleCloseMainLabelPopover()" (createNewLabel)="handleCreateNewLabel()" [boardId]="boardId" [taskId]="task?.taskId!" ></app-main-label-popover>
   </div>
   <div class="task-modal">
 

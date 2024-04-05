@@ -39,12 +39,6 @@ export class BoardService {
     return this.http.delete(url, {headers});
   }
 
-  // getBoardsForUser(userEmail: number): Observable<Board[]> {
-  //   const url = `${this.apiUrl}/users/${userEmail}/boards`;
-  //   const headers = this.authService.createAuthorizationHeader();
-  //   return this.http.get<Board[]>(url, { headers });
-  // }
-
   getAllBoardsForUser(): Observable<Board[]> {
     const url = `${this.apiUrl}/boards`;
     const headers = this.authService.createAuthorizationHeader();
@@ -107,6 +101,25 @@ export class BoardService {
     const url = `${this.apiUrl}/boards/${boardId}/labels`;
     const headers = this.authService.createAuthorizationHeader();
     return this.http.get(url, {headers});
+  }
+
+  assignLabelToTask(taskId: number, labelId: number): Observable<any> {
+    const url = `${this.apiUrl}/tasks/${taskId}/labels/${labelId}`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.post(url, null, {headers});
+  }
+
+  unassignLabelFromTask(taskId: number, labelId: number): Observable<any> {
+    const url = `${this.apiUrl}/tasks/${taskId}/labels/${labelId}`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.delete(url, {headers});
+  }
+
+
+  getTask(taskId: number): Observable<Task> {
+    const url = `${this.apiUrl}/tasks/${taskId}`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.get<Task>(url, {headers});
   }
 
 }

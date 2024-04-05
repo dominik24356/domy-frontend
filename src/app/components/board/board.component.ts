@@ -140,6 +140,7 @@ export class BoardComponent implements OnInit {
   closeTaskModal(): void {
     this.selectedTask = undefined;
     this.isTaskModalOpen = false;
+    this.getUserBoard();
   }
 
 

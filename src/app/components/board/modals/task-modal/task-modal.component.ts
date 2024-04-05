@@ -64,7 +64,6 @@ export class TaskModalComponent implements AfterViewInit {
   }
 
   startEditingDescription(): void {
-
     const readableHeight = this.readableDescription?.nativeElement.offsetHeight || 0;
     const editableHeight = this.editableDescription?.nativeElement.scrollHeight || 0;
 
@@ -137,6 +136,22 @@ export class TaskModalComponent implements AfterViewInit {
     return throwError('Task is not defined.');
   }
 
+  refreshTask(): void {
+    if (this.task) {
+      this.boardService.getTask(this.task.taskId!).subscribe({
+        next: (task: Task) => {
+          this.task = task;
+          this.cdr.detectChanges();
+        },
+        error: (error: any) => {
+          console.error('Error refreshing task:', error);
+        }
+      });
+    } else {
+      throwError('Task is not defined.');
+    }
+  }
+
 
 
   openLabelsDialog() {
@@ -157,6 +172,17 @@ export class TaskModalComponent implements AfterViewInit {
     this.showAddLabelPopover = false;
     this.showMainLabelPopover = true;
   }
+
+  handleCloseMainLabelPopover() {
+    this.showMainLabelPopover = false;
+    this.refreshTask();
+  }
+
+
+
+
+
+
 }
 
 

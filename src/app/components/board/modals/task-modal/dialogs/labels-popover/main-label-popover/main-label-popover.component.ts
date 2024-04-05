@@ -14,7 +14,6 @@ export class MainLabelPopoverComponent implements OnInit{
   errorMessage: string = '';
 
   @Output() closePopover: EventEmitter<void> = new EventEmitter<void>();
-  // create new label output
   @Output() createNewLabel: EventEmitter<void> = new EventEmitter<void>();
   @Input() boardId!: number;
   @Input() taskId!: number;
@@ -24,38 +23,34 @@ export class MainLabelPopoverComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // get labels form boardservice by boardId
+    this.getLabels();
+  }
+
+  getLabels(): void {
     this.boardService.getLabels(this.boardId).subscribe({
       next: (labels: Label[]) => {
         this.labels = labels;
-        this.filteredLabels = [...labels]; // Skopiuj etykiety do tablicy etykiet po zastosowaniu filtru
+        this.filteredLabels = [...labels];
       },
       error: (error: any) => {
         this.errorMessage = 'Error getting labels';
         console.error('Error getting labels:', error);
       }
     });
-
   }
 
-  // Filtruj etykiety na podstawie wprowadzonego zapytania wyszukiwania
+
   filterLabels(): void {
     this.filteredLabels = this.labels.filter(label =>
       label.name?.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
-  assignToTask(label: Label): void {
-    // Logika przypisywania etykiety do zadania
-  }
 
   showCreateNewLabelForm(): void {
     this.createNewLabel.emit();
   }
 
-  saveLabels(): void {
-    // Logika zapisywania etykiet
-  }
 
   close() {
     this.closePopover.emit();
@@ -63,11 +58,48 @@ export class MainLabelPopoverComponent implements OnInit{
 
   assignOrUnassign(label: Label): void {
     if (label.taskIds && label.taskIds.includes(this.taskId)) {
-      console.log('This label is already assigned to this task.');
-      // Tutaj możesz wyświetlić odpowiednie powiadomienie dla użytkownika
+      this.unassign(label);
     } else {
-      // Logika przypisywania etykiety do zadania
-      console.log('Assigning label to task...');
+      this.assign(label);
+    }
+  }
+
+  assign(label: any) {
+    this.boardService.assignLabelToTask(this.taskId, label.labelId).subscribe({
+      next: () => {
+        this.getLabels();
+      },
+      error: (error: any) => {
+        this.errorMessage = 'Error assigning label';
+        console.error('Error assigning label:', error);
+      }
+    });
+  }
+
+  unassign(label: any) {
+    this.boardService.unassignLabelFromTask(this.taskId, label.labelId).subscribe({
+      next: () => {
+        this.getLabels();
+      },
+      error: (error: any) => {
+        this.errorMessage = 'Error unassigning label';
+        console.error('Error unassigning label:', error);
+      }
+    });
+  }
+
+  getColor(colorName: string): string {
+    switch (colorName.toLowerCase()) {
+      case 'red':
+        return '#bd0d56';
+      case 'green':
+        return '#3aab53';
+      case 'blue':
+        return '#160dbd';
+      case 'yellow':
+        return '#cbd420';
+      default:
+        return 'transparent';
     }
   }
 }

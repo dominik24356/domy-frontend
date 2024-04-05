@@ -10,7 +10,7 @@
     <div class="label-item" *ngFor="let label of filteredLabels">
       <div class="label-info">
         <div class="label-name">{{ label.name }}</div>
-        <div class="label-color" [ngStyle]="{ 'background-color': label.color }"></div>
+        <div class="label-color"  [ngStyle]="{ 'background-color': getColor(label.color!) }"></div>
       </div>
       <button class="assign-task-button"
               (click)="assignOrUnassign(label)"
@@ -22,9 +22,6 @@
 
   <!-- Create new label button -->
   <button type="button" class="create-label-button" (click)="showCreateNewLabelForm()">Create New Label</button>
-
-  <!-- Save labels button -->
-  <button type="button" class="save-label-button" (click)="saveLabels()">Save Labels</button>
 
   <!-- Error message -->
   <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
