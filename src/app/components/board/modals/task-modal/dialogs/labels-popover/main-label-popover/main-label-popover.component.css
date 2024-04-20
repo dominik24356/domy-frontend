@@ -7,7 +7,7 @@
   border-radius: 10px;
   margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  width: 250px;
+  min-width: auto;
 }
 
 .main-label-popover input {
@@ -28,6 +28,7 @@
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .main-label-popover .label-list::-webkit-scrollbar {
@@ -55,6 +56,7 @@
   background-color: #3a3e47;
   margin-bottom: 10px;
   border-radius: 5px;
+  height: 30px;
 }
 
 .main-label-popover .label-info {
@@ -77,7 +79,7 @@
   border-radius: 50%;
 }
 
-.main-label-popover .assign-task-button {
+.main-label-popover .task-button {
   background-color: #333;
   color: #fff;
   border: none;
@@ -85,8 +87,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  margin-left: auto;
+  height: 100%;
+  white-space: nowrap;
+
 }
-.main-label-popover .assign-task-button:hover {
+.main-label-popover .task-button:hover {
   background-color: #fff;
   color: #000;
 }

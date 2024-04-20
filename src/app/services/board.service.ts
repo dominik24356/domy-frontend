@@ -122,4 +122,9 @@ export class BoardService {
     return this.http.get<Task>(url, {headers});
   }
 
+  deleteLabel(labelId: number): Observable<any> {
+    const url = `${this.apiUrl}/labels/${labelId}`;
+    const headers = this.authService.createAuthorizationHeader();
+    return this.http.delete(url, {headers});
+  }
 }

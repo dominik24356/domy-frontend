@@ -102,4 +102,17 @@ export class MainLabelPopoverComponent implements OnInit{
         return 'transparent';
     }
   }
+
+  deleteLabel(label: Label) {
+    this.boardService.deleteLabel(label.labelId!).subscribe({
+      next: () => {
+        this.getLabels();
+      },
+      error: (error: any) => {
+        this.errorMessage = 'Error deleting label';
+        console.error('Error deleting label:', error);
+      }
+    });
+
+  }
 }

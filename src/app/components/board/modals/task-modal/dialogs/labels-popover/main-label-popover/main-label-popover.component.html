@@ -12,11 +12,13 @@
         <div class="label-name">{{ label.name }}</div>
         <div class="label-color"  [ngStyle]="{ 'background-color': getColor(label.color!) }"></div>
       </div>
-      <button class="assign-task-button"
+      <button class="task-button"
               (click)="assignOrUnassign(label)"
               [ngClass]="{'assigned': label.taskIds && label.taskIds.includes(taskId), 'not-assigned': !label.taskIds || !label.taskIds.includes(taskId)}">
         {{ label.taskIds && label.taskIds.includes(taskId) ? 'Unassign' : 'Assign to Task' }}
       </button>
+
+      <button class="task-button" (click)="deleteLabel(label)">Delete</button>
     </div>
   </div>
 
